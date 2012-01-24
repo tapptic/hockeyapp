@@ -21,11 +21,11 @@ module HockeyApp
     end
 
     def crashes
-      @crashes ||= @app.crashes.keep_if{|crash| crash.app_version_id == version}
+      @crashes ||= @app.crashes.keep_if{|crash| "#{crash.app_version_id}" == version}
     end
 
     def crash_reasons
-      @crash_groups ||= @app.crash_reasons.keep_if{|crash_reason| crash_reasons.app_version_id == version}
+      @crash_groups ||= @app.crash_reasons.keep_if{|crash_reason| "#{crash_reason.app_version_id}" == version}
     end
 
 

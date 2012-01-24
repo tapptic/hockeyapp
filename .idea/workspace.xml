@@ -49,10 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/hockeyapp/models/app.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="44" selection-start="937" selection-end="937" vertical-scroll-proportion="0.39811912">
+            <state line="43" column="44" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -61,7 +61,7 @@
       <file leaf-file-name="client.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/hockeyapp/ws/client.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="7" selection-start="1308" selection-end="1308" vertical-scroll-proportion="0.0">
+            <state line="26" column="0" selection-start="731" selection-end="731" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -70,7 +70,7 @@
       <file leaf-file-name="version.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/hockeyapp/models/version.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="39" selection-start="60" selection-end="72" vertical-scroll-proportion="0.0">
+            <state line="27" column="98" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -80,6 +80,24 @@
         <entry file="file://$PROJECT_DIR$/lib/hockeyapp/ws/ws.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="45" column="0" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fake_ws.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/support/fake_ws.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="25" selection-start="471" selection-end="471" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crash_spec.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/models/crash_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="72" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.6739812">
               <folding />
             </state>
           </provider>
@@ -108,11 +126,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/hockeyapp/models/crash_group.rb" />
         <option value="$PROJECT_DIR$/spec/models/crash_group_spec.rb" />
         <option value="$PROJECT_DIR$/spec/models/version_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/support/fake_ws.rb" />
-        <option value="$PROJECT_DIR$/spec/models/crash_spec.rb" />
         <option value="$PROJECT_DIR$/lib/hockeyapp/ws/ws.rb" />
         <option value="$PROJECT_DIR$/lib/hockeyapp/models/crash.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
@@ -124,6 +139,9 @@
         <option value="$PROJECT_DIR$/lib/hockeyapp/ws/client.rb" />
         <option value="$PROJECT_DIR$/spec/models/app_spec.rb" />
         <option value="$PROJECT_DIR$/lib/hockeyapp/models/app.rb" />
+        <option value="$PROJECT_DIR$/lib/hockeyapp/models/version.rb" />
+        <option value="$PROJECT_DIR$/spec/support/fake_ws.rb" />
+        <option value="$PROJECT_DIR$/spec/models/crash_spec.rb" />
       </list>
     </option>
   </component>
@@ -390,7 +408,7 @@
       <recent name="$PROJECT_DIR$/spec" />
     </key>
   </component>
-  <component name="RunManager" selected="RSpec.app_spec">
+  <component name="RunManager" selected="RSpec.All specs in: spec">
     <configuration default="false" name="All specs in: spec" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="hockeyapp" />
@@ -781,7 +799,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1087" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -856,20 +874,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/rspec-core-2.8.0/lib/rspec/core/configuration.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="698" column="0" selection-start="23101" selection-end="23101" vertical-scroll-proportion="0.3321617">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/rspec-core-2.8.0/lib/rspec/core/example.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="3062" selection-end="3062" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.gem/ruby/1.9.1/gems/activemodel-3.2.0/lib/active_model/naming.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
@@ -933,20 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/hockeyapp/ws/ws.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/hockeyapp/ws/client.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="7" selection-start="1308" selection-end="1308" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/app_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="42" selection-start="1650" selection-end="1650" vertical-scroll-proportion="0.0">
@@ -954,16 +944,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/hockeyapp/models/version.rb">
+    <entry file="file://$PROJECT_DIR$/lib/hockeyapp/models/app.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="39" selection-start="60" selection-end="72" vertical-scroll-proportion="0.0">
+        <state line="43" column="44" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/hockeyapp/models/app.rb">
+    <entry file="file://$PROJECT_DIR$/lib/hockeyapp/models/version.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="44" selection-start="937" selection-end="937" vertical-scroll-proportion="0.39811912">
+        <state line="27" column="98" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/hockeyapp/ws/client.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="731" selection-end="731" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/hockeyapp/ws/ws.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/support/fake_ws.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="25" selection-start="471" selection-end="471" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/crash_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="72" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.6739812">
           <folding />
         </state>
       </provider>

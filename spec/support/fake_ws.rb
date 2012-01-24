@@ -17,8 +17,12 @@ module HockeyApp
       respond "app_versions"
     end
 
-    def get_log app_id, options = {}
-      return ["log", "description"]
+    def get_crash_log app_id, options = {}
+      return "log"
+    end
+
+    def get_crash_description app_id, options = {}
+      return "description"
     end
 
 
