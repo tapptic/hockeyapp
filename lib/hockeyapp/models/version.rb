@@ -4,7 +4,7 @@ module HockeyApp
         :config_url, :device_family, :title]
 
     attr_reader *ATTRIBUTES
-    attr_reader :application
+    attr_reader :app
 
 
     def self.from_hash(h, app, client)
