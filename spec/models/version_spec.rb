@@ -1,4 +1,4 @@
-require 'hockeyapp'
+require_relative '../../spec/support/rspec_helper'
 require "awesome_print"
 
 describe HockeyApp::Version do
@@ -39,12 +39,12 @@ describe HockeyApp::Version do
     end
 
   it "calls client when asked for crashes" do
-    @client.should_receive(:list_crashes).with(@app)
+    @client.should_receive(:get_crashes).with(@app).and_return([])
     @version.crashes
   end
 
   it "calls client when asked for crash groups" do
-    @client.should_receive(:list_crash_groups).with(@app)
+    @client.should_receive(:get_crash_groups).with(@app).and_return([])
     @version.crash_reasons
   end
 

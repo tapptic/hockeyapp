@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Philippe Van Eerdenbrugghe"]
   s.email       = ["philippe.vaneerdenbrugghe@tapptic.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Wrapper for the hockeyapp REST API}
+  s.description = %q{This simple wrapper enables you to acces the hockeyapp REST API through simple ruby calls. You are rquired to configure a valid token before doing anyhting else}
 
   s.rubyforge_project = "hockeyapp"
 

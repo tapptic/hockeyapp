@@ -4,7 +4,7 @@ module HockeyApp
         :app_version_id, :user_string, :has_description, :bundle_short_version, :has_log, :model, :oem, :os_version]
 
     attr_reader *ATTRIBUTES
-    attr_reader :application
+    attr_reader :app
 
 
     def self.from_hash(h, app, client)
@@ -15,15 +15,24 @@ module HockeyApp
       res
     end
 
-    def initialize application, client
-      @application = application
+    def initialize app, client
+      @app = app
       @client = client
+    end
+
+    def log
+      log ||= client.get_crash_log(self) if has_log
+    end
+
+    def description
+      @description ||= client.get_crash_description(self) if has_description
     end
 
 
     private
 
     attr_writer *ATTRIBUTES
+    attr_accessor :client
 
 
   end

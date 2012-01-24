@@ -27,7 +27,7 @@ describe HockeyApp::CrashGroup do
     end
 
     it "can give me info about the crash group" do
-      @crash_group.file.should == "xxx"
+      @crash_group.file.should == "AbstractParser.java"
       @crash_group.reason.should == "java.lang.RuntimeException: An error occured while executing doInBackground()"
       @crash_group.status.should == 1
       @crash_group.id.should == 135837

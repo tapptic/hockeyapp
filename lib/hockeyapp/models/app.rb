@@ -19,11 +19,11 @@ module HockeyApp
     end
 
     def crashes
-      @crashes || @client.list_crashes(self)
+      @crashes = @client.get_crashes(self) if @crashes.nil?
     end
 
     def crash_reasons
-      @crash_reasons || @client.list_crash_groups(self)
+      @crash_reasons ||= @client.get_crash_groups(self)
     end
 
     def download_url

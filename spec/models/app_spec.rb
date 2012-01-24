@@ -37,12 +37,12 @@ describe HockeyApp::App do
 
 
   it "will call client when asked for crashes" do
-    @client.should_receive(:list_crashes).with(@app)
+    @client.should_receive(:get_crashes).with(@app)
     @app.crashes
   end
 
     it "will call client when asked for crash reasons" do
-    @client.should_receive(:list_crash_groups).with(@app)
+    @client.should_receive(:get_crash_groups).with(@app)
     @app.crash_reasons
   end
 

@@ -1,7 +1,8 @@
 module HockeyApp
   class CrashGroup
-    ATTRIBUTES = [:crash_reason_id, :id, :jail_break, :created_at, :updated_at, :contact_string, :app_id, :bundle_version,
-        :app_version_id, :user_string, :has_description, :bundle_short_version, :has_log, :model, :oem, :os_version]
+    ATTRIBUTES = [:file, :reason, :status, :id, :class, :bundle_version, :last_crash_at, :app_version_id,
+        :line, :updated_at, :method, :bundle_short_version, :number_of_crashes, :fixed, :created_at, :app_id]
+
 
     attr_reader *ATTRIBUTES
     attr_reader :application

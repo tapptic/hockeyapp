@@ -49,7 +49,7 @@ describe HockeyApp::Crash do
 
 
   it "will call client when asked for log" do
-    @client.should_receive(:detail_crash).with(@crash)
+    @client.should_receive(:get_log).with(@crash).and_return(["description", "log"])
     @crash.log
   end
 
