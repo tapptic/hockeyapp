@@ -48,6 +48,10 @@ module HockeyApp
       @crash_reasons ||= @client.get_crash_groups(self)
     end
 
+    def versions
+      @versions ||= @client.get_versions(self)
+    end
+
     def download_url
       "https://rink.hockeyapp.net/api/2/apps/#{public_identifier}?format=#{download_format}"
     end

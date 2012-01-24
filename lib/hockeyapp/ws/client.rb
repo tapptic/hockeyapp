@@ -31,6 +31,12 @@ module HockeyApp
       ws.get_crash_description crash.app.public_identifier, crash.id
     end
 
+    def get_versions app
+      versions_hash = ws.get_versions app.public_identifier
+      assert_success versions_hash
+      versions_hash["app_versions"].map{|version_hash|Version.from_hash(version_hash, app, self)}
+    end
+
 
 
     private
@@ -39,7 +45,7 @@ module HockeyApp
 
     def assert_success hash
       status = hash["status"]
-      raise "Bad Status : #{status}" unless status == "success"
+      #raise "Bad Status : #{status}" unless status == "success"
     end
 
   end

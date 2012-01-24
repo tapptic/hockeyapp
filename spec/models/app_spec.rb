@@ -44,10 +44,15 @@ describe HockeyApp::App do
     @app.crashes
   end
 
-    it "will call client when asked for crash reasons" do
+  it "will call client when asked for crash reasons" do
     @client.should_receive(:get_crash_groups).with(@app)
     @app.crash_reasons
   end
+
+    it "will call client when asked for versions" do
+      @client.should_receive(:get_versions).with(@app)
+      @app.versions
+    end
 
   it "can generate a download url" do
     @app.download_url.should == "https://rink.hockeyapp.net/api/2/apps/91423bc5519dd2462513abbb54598959?format=apk"
