@@ -25,11 +25,13 @@ module HockeyApp
       self
     end
     def persisted?
-      false
+      true
+    end
+    def to_key
+      [public_identifier] if persisted?
     end
     def valid?()      true end
-    def new_record?() true end
-    def destroyed?()  true end
+
 
     def errors
       obj = Object.new
