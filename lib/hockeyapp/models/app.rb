@@ -41,7 +41,7 @@ module HockeyApp
     end
 
     def crashes
-      @crashes = @client.get_crashes(self) if @crashes.nil?
+      @crashes ||= @client.get_crashes(self)
     end
 
     def crash_reasons
