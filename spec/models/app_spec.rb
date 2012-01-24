@@ -1,5 +1,4 @@
-require 'hockeyapp'
-require "awesome_print"
+require_relative '../support/rspec_helper'
 
 describe HockeyApp::App do
 
@@ -19,7 +18,11 @@ describe HockeyApp::App do
         }
       @client = HockeyApp::Client.new(HockeyApp::FakeWS.new)
       @app = HockeyApp::App.from_hash h, @client
+      @model = @app
     end
+
+
+    it_behaves_like "ActiveModel"
 
     it "can give me info about my application" do
       @app.bundle_identifier.should == "com.tapptic.rtl5.rtlxl.beta"

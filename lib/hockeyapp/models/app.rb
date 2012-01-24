@@ -1,5 +1,8 @@
 module HockeyApp
   class App
+    extend  ActiveModel::Naming
+    include ActiveModel::Conversion
+
     ATTRIBUTES = [:title, :minimum_os_version, :status, :company, :owner, :bundle_identifier, :device_family, :platform,
         :public_identifier, :role, :release_type]
 
@@ -16,6 +19,23 @@ module HockeyApp
 
     def initialize client
       @client = client
+    end
+
+    def to_model
+      self
+    end
+    def persisted?
+      false
+    end
+    def valid?()      true end
+    def new_record?() true end
+    def destroyed?()  true end
+
+    def errors
+      obj = Object.new
+      def obj.[](key)         [] end
+      def obj.full_messages() [] end
+      obj
     end
 
     def crashes
