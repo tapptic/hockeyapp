@@ -22,15 +22,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="version.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/hockeyapp/models/version.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="crash_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/models/crash_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -67,10 +58,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hockeyapp.gemspec" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="hockeyapp.gemspec" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hockeyapp.gemspec">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="181" selection-start="526" selection-end="526" vertical-scroll-proportion="0.2507837">
+            <state line="25" column="37" selection-start="1055" selection-end="1055" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="29" selection-end="29" vertical-scroll-proportion="0.02507837">
               <folding />
             </state>
           </provider>
@@ -126,7 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/spec/ws/client_spec.rb" />
         <option value="$PROJECT_DIR$/spec/support/rspec_helper.rb" />
         <option value="$PROJECT_DIR$/lib/hockeyapp.rb" />
         <option value="$PROJECT_DIR$/lib/hockeyapp/models/version.rb" />
@@ -142,6 +141,7 @@
         <option value="$PROJECT_DIR$/lib/hockeyapp/models/crash.rb" />
         <option value="$PROJECT_DIR$/spec/ws/ws_spec.rb" />
         <option value="$PROJECT_DIR$/hockeyapp.gemspec" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -840,11 +840,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/rspec-mocks-2.8.0/lib/rspec/mocks/proxy.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="0" selection-start="3337" selection-end="3337" vertical-scroll-proportion="0.3321617" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/rspec-mocks-2.8.0/lib/rspec/mocks/methods.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="134" column="0" selection-start="4482" selection-end="4482" vertical-scroll-proportion="0.3813708" />
@@ -939,7 +934,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hockeyapp.gemspec">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="181" selection-start="526" selection-end="526" vertical-scroll-proportion="0.2507837">
+        <state line="25" column="37" selection-start="1055" selection-end="1055" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="29" selection-end="29" vertical-scroll-proportion="0.02507837">
           <folding />
         </state>
       </provider>
