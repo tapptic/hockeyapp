@@ -38,13 +38,17 @@ describe HockeyApp::Version do
       
     end
 
-  it "calls client when asked for crashes" do
+  it "calls client once  when asked for crashes" do
     @client.should_receive(:get_crashes).with(@app).and_return([])
+    @version.crashes
+    @client.should_not_receive(:get_crashes).with(@app)
     @version.crashes
   end
 
-  it "calls client when asked for crash groups" do
+  it "calls client once when asked for crash groups" do
     @client.should_receive(:get_crash_groups).with(@app).and_return([])
+    @version.crash_reasons
+    @client.should_not_receive(:get_crash_groups).with(@app)
     @version.crash_reasons
   end
 

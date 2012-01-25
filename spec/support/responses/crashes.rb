@@ -4,7 +4,7 @@
     "total_entries" => 10,
       "total_pages" => 1,
           "crashes" => [
-        0 => {
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.2.1",
@@ -22,7 +22,7 @@
                           "app_id" => 2505,
                          "has_log" => true
         },
-        1 =>{
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.2.1",
@@ -40,7 +40,7 @@
                           "app_id" => 2505,
                          "has_log" => true
         },
-        2 => {
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.3.6",
@@ -58,7 +58,7 @@
                           "app_id" => 2505,
                          "has_log" => true
         },
-        3 => {
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.3.6",
@@ -76,7 +76,7 @@
                           "app_id" => 2505,
                          "has_log" => true
         },
-        4 => {
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.3.6",
@@ -94,7 +94,7 @@
                           "app_id" => 2505,
                          "has_log" => true
         },
-        5 => {
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.3.7",
@@ -112,7 +112,7 @@
                           "app_id" => 2505,
                          "has_log" => true
         },
-        6 => {
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.3.7",
@@ -130,7 +130,7 @@
                           "app_id" => 2505,
                          "has_log" => true
         },
-        7 => {
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.2.1",
@@ -148,7 +148,7 @@
                           "app_id" => 2505,
                          "has_log" => true
         },
-        8 => {
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.2.1",
@@ -166,7 +166,7 @@
                           "app_id" => 2505,
                          "has_log" => true
         },
-        9 => {
+        {
                      "user_string" => "",
                  "has_description" => false,
                       "os_version" => "2.3.5",

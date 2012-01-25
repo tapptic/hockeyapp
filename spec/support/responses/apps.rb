@@ -1,7 +1,7 @@
 {
         "status" => "success",
           "apps" => [
-            0 => {
+            {
                       "release_type" => 0,
                            "company" => "tapptic",
                             "status" => 2,

@@ -1,8 +1,8 @@
 module HockeyApp
   class FakeWS
 
-    def list_applications
-      send "apps"
+    def get_apps
+      respond "apps"
     end
 
     def get_crashes app_id, options = {}

@@ -39,18 +39,24 @@ describe HockeyApp::App do
     end
 
 
-  it "will call client when asked for crashes" do
-    @client.should_receive(:get_crashes).with(@app)
+  it "will call client once when asked for crashes" do
+    @client.should_receive(:get_crashes).with(@app).and_return([])
+    @app.crashes
+    @client.should_not_receive(:get_crashes).with(@app)
     @app.crashes
   end
 
-  it "will call client when asked for crash reasons" do
-    @client.should_receive(:get_crash_groups).with(@app)
+  it "will call client once when asked for crash reasons" do
+    @client.should_receive(:get_crash_groups).with(@app).and_return([])
+    @app.crash_reasons
+    @client.should_not_receive(:get_crash_groups).with(@app)
     @app.crash_reasons
   end
 
-    it "will call client when asked for versions" do
-      @client.should_receive(:get_versions).with(@app)
+    it "will call client once when asked for versions" do
+      @client.should_receive(:get_versions).with(@app).and_return([])
+      @app.versions
+      @client.should_not_receive(:get_versions).with(@app)
       @app.versions
     end
 

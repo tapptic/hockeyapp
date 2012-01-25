@@ -1,5 +1,6 @@
 require 'active_support/core_ext/object/blank'
 require 'active_model'
+require 'hockeyapp/models/active_model_compliance'
 require "hockeyapp/models/app"
 require 'hockeyapp/models/crash'
 require 'hockeyapp/models/version'

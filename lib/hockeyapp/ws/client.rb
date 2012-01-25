@@ -6,7 +6,7 @@ module HockeyApp
     end
 
     def get_apps
-      apps_hash = ws.get_applications
+      apps_hash = ws.get_apps
       assert_success apps_hash
       apps_hash["apps"].map{|app_hash|App.from_hash(app_hash, self)}
     end
@@ -45,7 +45,7 @@ module HockeyApp
 
     def assert_success hash
       status = hash["status"]
-      #raise "Bad Status : #{status}" unless status == "success"
+      raise "Bad Status : #{status}" unless status == "success"
     end
 
   end

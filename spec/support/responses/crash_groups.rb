@@ -2,7 +2,7 @@
      "current_page" => 1,
            "status" => "success",
     "crash_reasons" => [
-        0 => {
+         {
                             "file" => "AbstractParser.java",
                           "reason" => "java.lang.RuntimeException: An error occured while executing doInBackground()",
                           "status" => 1,
@@ -20,7 +20,7 @@
                       "created_at" => "2011-12-15T20:06:49Z",
                           "app_id" => 2505
         },
-        1 => {
+        {
                             "file" => "SerieItem.java",
                           "reason" => "java.lang.RuntimeException: An error occured while executing doInBackground()",
                           "status" => 0,
@@ -38,7 +38,7 @@
                       "created_at" => "2011-12-16T09:14:45Z",
                           "app_id" => 2505
         },
-        2 => {
+        {
                             "file" => "ShowListAdapter.java",
                           "reason" => "java.lang.NullPointerException",
                           "status" => 1,
@@ -56,7 +56,7 @@
                       "created_at" => "2011-12-16T10:39:06Z",
                           "app_id" => 2505
         },
-        3 => {
+        {
                             "file" => "AbstractParser.java",
                           "reason" => "java.lang.RuntimeException: An error occured while executing doInBackground()",
                           "status" => 0,
@@ -74,7 +74,7 @@
                       "created_at" => "2011-12-30T19:05:57Z",
                           "app_id" => 2505
         },
-        4 => {
+        {
                             "file" => "AbstractParser.java",
                           "reason" => "java.lang.RuntimeException: An error occured while executing doInBackground()",
                           "status" => 0,
@@ -92,7 +92,7 @@
                       "created_at" => "2012-01-02T18:58:21Z",
                           "app_id" => 2505
         },
-        5 => {
+        {
                             "file" => "CoverFlowActivity.java",
                           "reason" => "java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState",
                           "status" => 0,
@@ -110,7 +110,7 @@
                       "created_at" => "2012-01-03T15:01:54Z",
                           "app_id" => 2505
         },
-        6 => {
+        {
                             "file" => "SerieItem.java",
                           "reason" => "java.lang.NullPointerException",
                           "status" => 0,

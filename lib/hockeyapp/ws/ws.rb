@@ -15,7 +15,7 @@ module HockeyApp
     end
     
     
-    def get_applications
+    def get_apps
       self.class.get '/apps'
     end
 

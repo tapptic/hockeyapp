@@ -1,6 +1,6 @@
 {
     "app_versions" => [
-        0 => {
+         {
                          "notes" => "<p>Pre-rolls management</p>",
                   "shortversion" => "0.9",
                        "version" => "9",
@@ -13,7 +13,7 @@
                  "device_family" => nil,
                          "title" => "RTL XL"
         },
-        1 => {
+        {
                          "notes" => "<p>The cover flow images are not the same for every image. This version specify a smaller zoom size to see if the cover flow looks better. Not quite that <span class=\"caps\">IMHO</span>.</p>",
                   "shortversion" => "0.8",
                        "version" => "8",
@@ -26,7 +26,7 @@
                  "device_family" => nil,
                          "title" => "RTL XL"
         },
-        2 => {
+        {
                          "notes" => "<p>Fix dutch typo errors</p>",
                   "shortversion" => "0.7",
                        "version" => "7",
@@ -39,7 +39,7 @@
                  "device_family" => nil,
                          "title" => "RTL XL"
         },
-        3 => {
+        {
                          "notes" => "<p>Add dutch and french languages<br />\nadd black background to lists and grids</p>",
                   "shortversion" => "0.6",
                        "version" => "6",
@@ -52,7 +52,7 @@
                  "device_family" => nil,
                          "title" => "RTL XL"
         },
-        4 => {
+         {
                          "notes" => "<p>- Enhanced view for the tablets<br />\n- Connectivity checks on every request<br />\n- Fix a bug where 2 requests were sent at the same time.</p>",
                   "shortversion" => "0.5",
                        "version" => "5",
@@ -65,7 +65,7 @@
                  "device_family" => nil,
                          "title" => "RTL XL"
         },
-        5 => {
+        {
                          "notes" => "<p>- Fix a visual text showed in the action bars</p>",
                   "shortversion" => "0.4",
                        "version" => "4",
@@ -78,7 +78,7 @@
                  "device_family" => nil,
                          "title" => "RTL XL"
         },
-        6 => {
+        {
                          "notes" => "<p>- Check connectivity on start up only.<br />\n- Set loaders to show loading statuses.</p>",
                   "shortversion" => "0.3",
                        "version" => "3",
@@ -91,7 +91,7 @@
                  "device_family" => nil,
                          "title" => "RTL XL"
         },
-        7 => {
+         {
                          "notes" => "<p>Test of update of the app</p>",
                   "shortversion" => "0.2",
                        "version" => "2",
@@ -104,7 +104,7 @@
                  "device_family" => nil,
                          "title" => "RTL XL"
         },
-        8 => {
+        {
                          "notes" => "<p>Beta test version, including the search function.<br />\nTesting hockeyapp platform as well.</p>",
                   "shortversion" => "0.1",
                        "version" => "1",
@@ -118,5 +118,5 @@
                          "title" => "RTL XL"
         }
     ],
-          "status" => "succss"
+          "status" => "success"
 }
