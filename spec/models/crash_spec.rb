@@ -26,7 +26,10 @@ describe HockeyApp::Crash do
       @client = HockeyApp::Client.new(HockeyApp::FakeWS.new)
       @app = HockeyApp::App.from_hash( {"public_identifier" => "91423bc5519dd2462513abbb54598959"}, @client)
       @crash = HockeyApp::Crash.from_hash h, @app, @client
+      @model = @crash
     end
+
+    it_behaves_like "ActiveModel"
 
     it "can give me info about the crash" do
       @crash.os_version.should == "2.2.1"

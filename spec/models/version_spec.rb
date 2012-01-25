@@ -21,7 +21,10 @@ describe HockeyApp::Version do
       @client = HockeyApp::Client.new(HockeyApp::FakeWS.new)
       @app = HockeyApp::App.from_hash( {"public_identifier" => "91423bc5519dd2462513abbb54598959"}, @client)
       @version = HockeyApp::Version.from_hash h, @app, @client
+      @model = @version
     end
+
+    it_behaves_like "ActiveModel"
 
     it "can give me info about the crash" do
       @version.notes.should == "<p>Pre-rolls management</p>"

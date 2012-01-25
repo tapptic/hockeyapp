@@ -21,7 +21,6 @@ describe HockeyApp::App do
       @model = @app
     end
 
-
     it_behaves_like "ActiveModel"
 
     it "can give me info about my application" do

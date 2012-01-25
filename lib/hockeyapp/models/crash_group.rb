@@ -1,6 +1,10 @@
 module HockeyApp
   class CrashGroup
-    ATTRIBUTES = [:file, :reason, :status, :id, :class, :bundle_version, :last_crash_at, :app_version_id,
+    extend  ActiveModel::Naming
+    include ActiveModel::Conversion
+    include ActiveModelCompliance
+
+    ATTRIBUTES = [:file, :reason, :status, :id, :crash_class, :bundle_version, :last_crash_at, :app_version_id,
         :line, :updated_at, :method, :bundle_short_version, :number_of_crashes, :fixed, :created_at, :app_id]
 
 
@@ -13,6 +17,7 @@ module HockeyApp
       ATTRIBUTES.each do |attribute|
         res.send("#{attribute.to_s}=", h[attribute.to_s]) unless (h[attribute.to_s].nil?)
       end
+      res.send("crash_class=", h['class']) unless h['class'].nil? # we should not override the #class method
       res
     end
 

@@ -1,5 +1,9 @@
 module HockeyApp
   class Crash
+    extend  ActiveModel::Naming
+    include ActiveModel::Conversion
+    include ActiveModelCompliance
+
     ATTRIBUTES = [:crash_reason_id, :id, :jail_break, :created_at, :updated_at, :contact_string, :app_id, :bundle_version,
         :app_version_id, :user_string, :has_description, :bundle_short_version, :has_log, :model, :oem, :os_version]
 

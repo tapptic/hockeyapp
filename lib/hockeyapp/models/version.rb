@@ -1,5 +1,9 @@
 module HockeyApp
   class Version
+    extend  ActiveModel::Naming
+    include ActiveModel::Conversion
+    include ActiveModelCompliance
+
     ATTRIBUTES = [:notes, :shortversion, :version, :status, :minimum_os_version, :mandatory, :timestamp, :appsize,
         :config_url, :device_family, :title]
 

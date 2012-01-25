@@ -24,14 +24,17 @@ describe HockeyApp::CrashGroup do
       @client = HockeyApp::Client.new(HockeyApp::FakeWS.new)
       @app = HockeyApp::App.from_hash( {"public_identifier" => "91423bc5519dd2462513abbb54598959"}, @client)
       @crash_group = HockeyApp::CrashGroup.from_hash h, @app, @client
+      @model = @crash_group
     end
+
+    it_behaves_like "ActiveModel"
 
     it "can give me info about the crash group" do
       @crash_group.file.should == "AbstractParser.java"
       @crash_group.reason.should == "java.lang.RuntimeException: An error occured while executing doInBackground()"
       @crash_group.status.should == 1
       @crash_group.id.should == 135837
-      @crash_group.class.should == "com.tapptic.common.parser.AbstractParser"
+      @crash_group.crash_class.should == "com.tapptic.common.parser.AbstractParser"
       @crash_group.bundle_version.should == "2"
       @crash_group.last_crash_at.should == "2011-12-15T20:07:11Z"
       @crash_group.app_version_id.should == 2
