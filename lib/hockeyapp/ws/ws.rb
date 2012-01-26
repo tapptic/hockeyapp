@@ -48,6 +48,19 @@ module HockeyApp
       self.class.get "/apps/#{app_id}/app_versions", options
     end
 
+    def post_new_version ipa, dsym=nil, notes=nil, notes_type=nil, notify=nil, status=nil
+      params = {
+        :ipa => ipa ? File.read(ipa) : nil,
+        :dsym => dsym ? File.read(dsym) : nil,
+        :notes => notes,
+        :notes_type => notes_type,
+        :notify => notify,
+        :status => status
+      }
+      params.reject!{|_,v|v.nil?}
+      self.class.post "/apps/#{app_id}/app_versions", params
+    end
+
 
   end
 end

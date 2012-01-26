@@ -15,7 +15,7 @@ describe HockeyApp::Crash do
           "has_log" => true,
           "bundle_version" => "2",
           "id" => 5511786,
-          "has_description" => false,
+          "has_description" => true,
           "bundle_short_version" => "0.2",
           "contact_string" => "",
           "jail_break" => nil,
@@ -41,7 +41,7 @@ describe HockeyApp::Crash do
       @crash.has_log.should be_true
       @crash.bundle_version.should == "2"
       @crash.id.should == 5511786
-      @crash.has_description.should be_false
+      @crash.has_description.should be_true
       @crash.bundle_short_version.should == "0.2"
       @crash.contact_string.should == ""
       @crash.jail_break.should be_nil
@@ -52,8 +52,25 @@ describe HockeyApp::Crash do
 
 
   it "will call client when asked for log" do
-    @client.should_receive(:get_crash_log).with(@crash).and_return("log")
+    @client.should_receive(:get_crash_log).with(@crash)
     @crash.log
+  end
+
+  it "should not call client for log if it is not supposed to have a log" do
+    @crash.has_log = false
+    @client.should_not_receive(:get_crash_log)
+    @crash.log
+  end
+
+  it "will call client when asked for description" do
+    @client.should_receive(:get_crash_description).with(@crash)
+    @crash.description
+  end
+
+  it "will not call for description if it is not supposed to have a description" do
+    @crash.has_description = false
+    @client.should_not_receive(:get_crash_description)
+    @crash.description
   end
 
 

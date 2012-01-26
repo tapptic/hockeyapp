@@ -2,13 +2,37 @@ module HockeyApp
   class Version
     extend  ActiveModel::Naming
     include ActiveModel::Conversion
+    include ActiveModel::Validations
     include ActiveModelCompliance
 
     ATTRIBUTES = [:notes, :shortversion, :version, :status, :minimum_os_version, :mandatory, :timestamp, :appsize,
         :config_url, :device_family, :title]
 
-    attr_reader *ATTRIBUTES
+    POST_PAYLOAD = [:ipa, :dsym, :notes_type, :notify, :tags]
+
+    NOTES_TYPES_TO_SYM = {
+        0 => :textile,
+        1 => :markdown
+    }
+
+
+    NOTIFY_TO_BOOL = {
+        0 => false,
+        1 => true
+    }
+
+    STATUS_TO_SYM = {
+        1 => :forbid,
+        2 => :allow
+    }
+
+    attr_accessor *ATTRIBUTES
+    attr_accessor *POST_PAYLOAD
     attr_reader :app
+
+    validates :notes_type, :inclusion => { :in =>NOTES_TYPES_TO_SYM.keys }
+    validates :notify, :inclusion => { :in => NOTIFY_TO_BOOL.keys }
+    validates :status, :inclusion => { :in => STATUS_TO_SYM.keys }
 
 
     def self.from_hash(h, app, client)
@@ -24,6 +48,10 @@ module HockeyApp
       @client = client
     end
 
+    def to_key
+      [version] if persisted?
+    end
+
     def crashes
       @crashes ||= @app.crashes.select{|crash| "#{crash.app_version_id}" == version}
     end
@@ -34,8 +62,7 @@ module HockeyApp
 
 
     private
-
-    attr_writer *ATTRIBUTES
+    attr_reader :client
 
   end
 end

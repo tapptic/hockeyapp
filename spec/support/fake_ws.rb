@@ -17,13 +17,20 @@ module HockeyApp
       respond "app_versions"
     end
 
-    def get_crash_log app_id, options = {}
-      return "log"
-    end
 
     def get_crash_description app_id, options = {}
-      return "description"
+      return "crash_description"
     end
+
+    def get_crash_log app_id, options = {}
+      return "crash_log"
+    end
+
+    def post_new_version ipa, dsym=nil, notes=nil, notes_type=nil, notify=nil, status=nil
+      respond "new_version"
+    end
+
+
 
 
     private

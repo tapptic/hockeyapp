@@ -37,6 +37,13 @@ module HockeyApp
       versions_hash["app_versions"].map{|version_hash|Version.from_hash(version_hash, app, self)}
     end
 
+    def post_new_version version
+      ipa = version.ipa
+      raise "There must be an executable file" if ipa.nil?
+      version_hash = ws.post_new_version version.ipa, version.dsym, version.notes, version.notes_type, version.notify, version.status
+      Version.from_hash(version_hash, version.app, self)
+    end
+
 
 
     private

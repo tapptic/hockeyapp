@@ -2,12 +2,13 @@ module HockeyApp
   class App
     extend  ActiveModel::Naming
     include ActiveModel::Conversion
+    include ActiveModel::Validations
     include ActiveModelCompliance
 
     ATTRIBUTES = [:title, :minimum_os_version, :status, :company, :owner, :bundle_identifier, :device_family, :platform,
         :public_identifier, :role, :release_type]
 
-    attr_reader *ATTRIBUTES
+    attr_accessor *ATTRIBUTES
 
 
     def self.from_hash(h, client)
@@ -22,18 +23,22 @@ module HockeyApp
       @client = client
     end
 
+    def to_key
+      [public_identifier] if persisted?
+    end
+
 
 
     def crashes
-      @crashes ||= @client.get_crashes(self)
+      @crashes ||= client.get_crashes(self)
     end
 
     def crash_reasons
-      @crash_reasons ||= @client.get_crash_groups(self)
+      @crash_reasons ||= client.get_crash_groups(self)
     end
 
     def versions
-      @versions ||= @client.get_versions(self)
+      @versions ||= client.get_versions(self)
     end
 
     def download_url
@@ -42,11 +47,12 @@ module HockeyApp
 
     private
 
-    attr_writer *ATTRIBUTES
+    attr_reader :client
 
     def download_format
       case platform
         when "Android" then "apk"
+        when "iOS" then "ipa"
         else ""
       end
     end
