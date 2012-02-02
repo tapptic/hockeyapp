@@ -22,7 +22,7 @@ module HockeyApp
     }
 
     STATUS_TO_SYM = {
-        1 => :forbid,
+        1 => :deny,
         2 => :allow
     }
 

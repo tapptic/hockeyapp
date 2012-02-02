@@ -9,6 +9,15 @@ require 'hockeyapp/ws/ws'
 require 'hockeyapp/ws/client'
 require 'hockeyapp/config'
 
+module HockeyApp
+  extend self
+
+  def build_client options = {}
+    ws = WS.new options
+    Client.new ws
+  end
+end
+
 
 
 

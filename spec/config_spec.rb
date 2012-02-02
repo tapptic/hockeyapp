@@ -1,4 +1,4 @@
-require 'hockeyapp'
+require_relative 'support/rspec_helper'
 
 describe HockeyApp::Config do
   

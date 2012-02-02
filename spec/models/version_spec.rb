@@ -1,5 +1,5 @@
 require_relative '../../spec/support/rspec_helper'
-require "awesome_print"
+
 
 describe HockeyApp::Version do
 

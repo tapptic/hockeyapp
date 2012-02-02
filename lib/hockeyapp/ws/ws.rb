@@ -1,8 +1,8 @@
-require 'httparty'
+require 'httmultiparty'
 
 module HockeyApp
   class WS
-    include HTTParty
+    include HTTMultiParty
     base_uri 'https://rink.hockeyapp.net/api/2'
     headers 'Accept' => 'application/json'
     format :json
@@ -48,17 +48,25 @@ module HockeyApp
       self.class.get "/apps/#{app_id}/app_versions", options
     end
 
-    def post_new_version ipa, dsym=nil, notes=nil, notes_type=nil, notify=nil, status=nil
+    def post_new_version(
+            app_id,
+            ipa,
+            dsym=nil,
+            notes="New version",
+            notes_type=Version::NOTES_TYPES_TO_SYM.invert[:textile],
+            notify=Version::NOTIFY_TO_BOOL.invert[false],
+            status=Version::STATUS_TO_SYM.invert[:allow]
+    )
       params = {
-        :ipa => ipa ? File.read(ipa) : nil,
-        :dsym => dsym ? File.read(dsym) : nil,
+        :ipa => ipa ,
+        :dsym => dsym ,
         :notes => notes,
         :notes_type => notes_type,
         :notify => notify,
         :status => status
       }
       params.reject!{|_,v|v.nil?}
-      self.class.post "/apps/#{app_id}/app_versions", params
+      self.class.post "/apps/#{app_id}/app_versions", :body => params
     end
 
 

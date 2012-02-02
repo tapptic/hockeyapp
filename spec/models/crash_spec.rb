@@ -1,5 +1,4 @@
-require 'hockeyapp'
-require "awesome_print"
+require_relative '../support/rspec_helper'
 
 describe HockeyApp::Crash do
 

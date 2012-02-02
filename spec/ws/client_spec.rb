@@ -10,6 +10,7 @@ describe HockeyApp::Client do
     let(:app) {HockeyApp::App.from_hash({"public_identifier" => "91423bc5519dd2462513abbb54598959"}, client)}
     let(:crash){HockeyApp::Crash.from_hash({"id" => "123456789", "has_description" => true, "has_log" => true}, app, client)}
 
+
     describe "#get_apps" do
       it "returns an Enumerable " do
         client.get_apps.should be_kind_of Enumerable
