@@ -62,7 +62,7 @@ module HockeyApp
     end
 
     def download_url
-      "#" 
+      "#"
     end
 
 

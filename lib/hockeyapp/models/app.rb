@@ -42,7 +42,8 @@ module HockeyApp
     end
 
     def create_version file, release_notes = ""
-      version = Version.new(self, self.client)
+      version = Version.new(self, @client)
+      version.ipa = file
       version.notes = release_notes
       client.post_new_version version
       @versions = nil
