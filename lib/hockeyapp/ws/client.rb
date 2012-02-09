@@ -41,6 +41,7 @@ module HockeyApp
       ipa = version.ipa
       raise "There must be an executable file" if ipa.nil?
       version_hash = ws.post_new_version(app_id, ipa, version.dsym, version.notes, version.notes_type, version.notify, version.status)
+      raise version_hash['errors'].map{|e|e.to_s}.join("\n") unless version_hash['errors'].nil?
       Version.from_hash(version_hash, version.app, self)
     end
 
