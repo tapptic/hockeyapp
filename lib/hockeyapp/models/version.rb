@@ -61,6 +61,10 @@ module HockeyApp
       @crash_groups ||= @app.crash_reasons.select{|crash_reason| "#{crash_reason.app_version_id}" == version}
     end
 
+    def download_url
+      "#" 
+    end
+
 
     private
 
