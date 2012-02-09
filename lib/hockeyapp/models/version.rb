@@ -45,7 +45,9 @@ module HockeyApp
     def initialize app, client
       @app = app
       @client = client
+      default_values!
     end
+
 
     def to_key
       [version] if persisted?
@@ -61,7 +63,16 @@ module HockeyApp
 
 
     private
+
     attr_reader :client
+
+    def default_values!
+      @dsym=nil
+      @notes="New version"
+      @notes_type=Version::NOTES_TYPES_TO_SYM.invert[:textile]
+      @notify=Version::NOTIFY_TO_BOOL.invert[false]
+      @status=Version::STATUS_TO_SYM.invert[:allow]
+    end
 
   end
 end

@@ -100,7 +100,7 @@ describe HockeyApp::Client do
         fake_runtime = Tempfile.new('fake_runtime')
         new_version.ipa= fake_runtime
 
-        ws.should_receive(:post_new_version).with(app.public_identifier, fake_runtime, nil, nil, nil, nil, nil).and_return({})
+        ws.should_receive(:post_new_version).with(app.public_identifier, fake_runtime, nil, 'New version', 0, 0, 2).and_return({})
         client.post_new_version new_version
         fake_runtime.unlink
       end

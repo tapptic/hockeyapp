@@ -41,6 +41,13 @@ module HockeyApp
       @versions ||= client.get_versions(self)
     end
 
+    def create_version file, release_notes = ""
+      version = Version.new(self, self.client)
+      version.notes = release_notes
+      client.post_new_version version
+      @versions = nil
+    end
+
     def download_url
       "https://rink.hockeyapp.net/api/2/apps/#{public_identifier}?format=#{download_format}"
     end
