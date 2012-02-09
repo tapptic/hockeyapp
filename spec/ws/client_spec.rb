@@ -100,7 +100,7 @@ describe HockeyApp::Client do
         fake_runtime = Tempfile.new('fake_runtime')
         new_version.ipa= fake_runtime
 
-        ws.should_receive(:post_new_version).with(fake_runtime, nil, nil, nil, nil, nil).and_return({})
+        ws.should_receive(:post_new_version).with(app.public_identifier, fake_runtime, nil, nil, nil, nil, nil).and_return({})
         client.post_new_version new_version
         fake_runtime.unlink
       end
@@ -117,7 +117,7 @@ describe HockeyApp::Client do
         new_version.status = ::HockeyApp::Version::STATUS_TO_SYM.invert[:allow]
 
 
-        ws.should_receive(:post_new_version).with(fake_runtime, fake_symbols, "Fake notes", 0, 1, 2).and_return({})
+        ws.should_receive(:post_new_version).with(app.public_identifier, fake_runtime, fake_symbols, "Fake notes", 0, 1, 2).and_return({})
         client.post_new_version new_version
         fake_runtime.unlink
         fake_symbols.unlink

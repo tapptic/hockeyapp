@@ -32,9 +32,8 @@ module HockeyApp
     end
 
     def get_versions app
-      versions_hash = ws.get_versions app.public_identifier
-      assert_success versions_hash
-      versions_hash["app_versions"].map{|version_hash|Version.from_hash(version_hash, app, self)}
+      versions = ws.get_versions app.public_identifier
+      versions.map{|version_hash|Version.from_hash(version_hash, app, self)}
     end
 
     def post_new_version version

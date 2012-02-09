@@ -8,13 +8,9 @@ describe HockeyApp::Version do
           "notes" => "<p>Pre-rolls management</p>",
           "shortversion" => "0.9",
           "version" => "9",
-          "status" => 2,
-          "minimum_os_version" => nil,
-          "mandatory" => false,
+
           "timestamp" => 1326468169,
           "appsize" => 396074,
-          "config_url" => "https://rink.hockeyapp.net/manage/apps/2505/app_versions/9",
-          "device_family" => nil,
           "title" => "RTL XL"
       }
 
@@ -30,13 +26,11 @@ describe HockeyApp::Version do
       @version.notes.should == "<p>Pre-rolls management</p>"
       @version.shortversion.should == "0.9"
       @version.version.should == "9"
-      @version.status.should == 2
-      @version.minimum_os_version.should be_nil
+
+
       @version.mandatory.should be_false
       @version.timestamp.should == 1326468169
       @version.appsize.should == 396074
-      @version.config_url.should == "https://rink.hockeyapp.net/manage/apps/2505/app_versions/9"
-      @version.device_family.should be_nil
       @version.title.should == "RTL XL"
       
     end

@@ -45,7 +45,7 @@ module HockeyApp
     end
 
     def get_versions app_id, options = {}
-      self.class.get "/apps/#{app_id}/app_versions", options
+      self.class.get "/apps/#{app_id}", options
     end
 
     def post_new_version(
