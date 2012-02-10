@@ -3,7 +3,10 @@ PATH
   specs:
     hockeyapp (0.0.1)
       activemodel
+      awesome_print
       httmultiparty
+      rspec
+      simplecov
 
 GEM
   remote: http://rubygems.org/
@@ -44,7 +47,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print
   hockeyapp!
-  rspec
-  simplecov
