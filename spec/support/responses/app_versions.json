@@ -1,0 +1,32 @@
+{
+    "app_versions": [
+    {
+        "version": "208",
+    "mandatory": false,
+"config_url": "https://rink.hockeyapp.net/manage/apps/1266/app_versions/208",
+    "download_url":"https://rink.hockeyapp.net/apps/0873e2b98ad046a92c170a243a8515f6/app_versions/208
+            "timestamp": 1326195742,
+            "appsize": 157547,
+            "device_family": null,
+            "notes": "<p>Fixed bug when users could not sign in.</p>\n",
+            "status": 2,
+            "shortversion": "1.1",
+            "minimum_os_version": null,
+            "title": "HockeyApp"
+        },
+        {
+            "version": "195",
+            "mandatory": false,
+            "config_url": "https://rink.hockeyapp.net/manage/apps/1266/app_versions/195",
+            "timestamp": 1325597848,
+            "appsize": 157591,
+            "device_family": null,
+            "notes": "<ul>\n<li>Added action bar with native support for Android 3.x and 4.0.</li>\n<li>Added grid view on Android tablets.</li>\n<li>Added &quot;Check for Updates&quot; to menu.</li>\n<li>Changed layout of detail view.</li>\n<li>Updated HockeySDK + various bug fixes.</li>\n</ul>\n",
+            "status": 1,
+            "shortversion": "1.1",
+            "minimum_os_version": null,
+            "title": "HockeyApp"
+        }
+    ],
+    "status": "success"
+}

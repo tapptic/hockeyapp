@@ -1,0 +1,22 @@
+{
+    "apps": [
+    {
+        "title": "HockeyTest",
+    "bundle_identifier": "de.codenauts.hockeytest.beta",
+    "public_identifier": "1234567890abcdef1234567890abcdef",
+    "device_family": "iPhone/iPod",
+    "minimum_os_version": "4.0",
+    "release_type": 0,
+    "status": 2,
+    "platform": "iOS"
+},
+    {
+        "title": "HockeyTest",
+    "bundle_identifier": "de.codenauts.hockeytest",
+    "public_identifier": "34567890abcdef1234567890abcdef12",
+    "release_type": 1,
+    "platform": "iOS"
+}
+],
+    "status": "success"
+}

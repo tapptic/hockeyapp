@@ -1,0 +1,83 @@
+[
+    {
+        "mandatory":false,
+        "appsize":396074,
+        "notes":"<p>Pre-rolls management</p>",
+        "title":"HockeyApp",
+        "timestamp":1326468169,
+        "version":"9",
+        "shortversion":"0.9"
+    },
+    {
+        "mandatory":false,
+        "appsize":355744,
+        "notes":"<p>The cover flow images are not the same for every image. This version specify a smaller zoom size to see if the cover flow looks better. Not quite that <span class=\"caps\">IMHO</span>.</p>",
+        "title":"HockeyApp",
+        "timestamp":1325597871,
+        "version":"8",
+        "shortversion":"0.8"
+    },
+    {
+        "mandatory":false,
+        "appsize":355758,
+        "notes":"<p>Fix dutch typo errors</p>",
+        "title":"HockeyApp",
+        "timestamp":1325597844,
+        "version":"7",
+        "shortversion":"0.7"
+    },
+    {
+        "mandatory":false,
+        "appsize":355724,
+        "notes":"<p>Add dutch and french languages<br />\nadd black background to lists and grids</p>",
+        "title":"HockeyApp",
+        "timestamp":1325597844,
+        "version":"6",
+        "shortversion":"0.6"
+    },
+    {
+        "mandatory":false,
+        "appsize":353289,
+        "notes":"<p>- Enhanced view for the tablets<br />\n- Connectivity checks on every request<br />\n- Fix a bug where 2 requests were sent at the same time.</p>",
+        "title":"HockeyApp",
+        "timestamp":1325597821,
+        "version":"5",
+        "shortversion":"0.5"
+    },
+    {
+        "mandatory":false,
+        "appsize":352416,
+        "notes":"<p>- Fix a visual text showed in the action bars</p>",
+        "title":"HockeyApp",
+        "timestamp":1325597809,
+        "version":"4",
+        "shortversion":"0.4"
+    },
+    {
+        "mandatory":false,
+        "appsize":352373,
+        "notes":"<p>- Check connectivity on start up only.<br />\n- Set loaders to show loading statuses.</p>",
+        "title":"HockeyApp",
+        "timestamp":1325597809,
+        "version":"3",
+        "shortversion":"0.3"
+    },
+    {
+        "mandatory":false,
+        "appsize":349035,
+        "notes":"<p>Test of update of the app</p>",
+        "title":"HockeyApp",
+        "timestamp":1325597802,
+        "version":"2",
+        "shortversion":"0.2"
+    },
+    {
+        "mandatory":false,
+        "appsize":349029,
+        "notes":"<p>Beta test version, including the search function.<br />\nTesting hockeyapp platform as well.</p>",
+        "title":"HockeyApp",
+        "timestamp":1325597802,
+        "version":"1",
+        "shortversion":"0.1"
+    }
+]
