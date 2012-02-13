@@ -61,7 +61,6 @@ module HockeyApp
       case platform
         when "Android" then "apk"
         when "iOS" then "ipa"
-        else ""
       end
     end
   end

@@ -7,7 +7,7 @@ describe HockeyApp::Client do
 
     let(:ws) {HockeyApp::FakeWS.new}
     let(:client) {HockeyApp::Client.new(ws)}
-    let(:app) {HockeyApp::App.from_hash({"public_identifier" => "91423bc5519dd2462513abbb54598959"}, client)}
+    let(:app) {HockeyApp::App.from_hash({"public_identifier" => "1234567890abcdef1234567890abcdef"}, client)}
     let(:crash){HockeyApp::Crash.from_hash({"id" => "123456789", "has_description" => true, "has_log" => true}, app, client)}
 
 
@@ -17,7 +17,7 @@ describe HockeyApp::Client do
       end
 
       it "has a single element " do
-        client.get_apps.should have(1).item
+        client.get_apps.should have(2).item
       end
 
       it "returns App objects" do
@@ -32,7 +32,7 @@ describe HockeyApp::Client do
       end
 
       it "has a 10 elements " do
-        client.get_crashes(app).should have(10).items
+        client.get_crashes(app).should have(2).items
       end
 
       it "returns Crash objects" do
@@ -47,7 +47,7 @@ describe HockeyApp::Client do
       end
 
       it "has a 7 elements " do
-        client.get_crash_groups(app).should have(7).items
+        client.get_crash_groups(app).should have(2).items
       end
 
       it "returns CrashGroup objects" do

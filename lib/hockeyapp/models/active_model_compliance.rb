@@ -6,8 +6,5 @@ module HockeyApp
     def persisted?
       true
     end
-
-
-
   end
 end

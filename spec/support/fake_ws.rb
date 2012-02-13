@@ -1,3 +1,4 @@
+require 'multi_json'
 module HockeyApp
   class FakeWS
 
@@ -36,7 +37,8 @@ module HockeyApp
     private
 
     def respond response_name
-      eval(File.read(File.expand_path("./responses/#{response_name}.rb", File.dirname(__FILE__))))
+      response_file = File.expand_path("./responses/#{response_name}.json", File.dirname(__FILE__))
+      MultiJson.decode(File.read(response_file))
     end
 
 

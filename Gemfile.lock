@@ -5,6 +5,7 @@ PATH
       activemodel
       awesome_print
       httmultiparty
+      multi_json
       rake
       rspec
       simplecov

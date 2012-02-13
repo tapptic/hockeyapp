@@ -20,7 +20,11 @@ describe HockeyApp::Version do
       @model = @version
     end
 
+    subject{@version}
+
     it_behaves_like "ActiveModel"
+
+    its(:download_url) { should == "#" }
 
     it "can give me info about the crash" do
       @version.notes.should == "<p>Pre-rolls management</p>"

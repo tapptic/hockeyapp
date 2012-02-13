@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "simplecov"
   s.add_runtime_dependency "awesome_print"
   s.add_runtime_dependency "rake"
+  s.add_runtime_dependency "multi_json"
 
 
   s.add_runtime_dependency "httmultiparty"""

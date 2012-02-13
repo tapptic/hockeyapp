@@ -1,5 +1,6 @@
 require 'simplecov'
 SimpleCov.start do
+  root File.expand_path('../..', File.dirname(__FILE__))
   add_filter '/spec/'
 
   add_group 'Models', '/models/'

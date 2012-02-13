@@ -4,17 +4,17 @@ describe HockeyApp::App do
 
     before :each do
         h = {
-            "bundle_identifier" => "com.tapptic.rtl5.rtlxl.beta",
-            "device_family" => nil,
-            "public_identifier" => "91423bc5519dd2462513abbb54598959",
-            "company" => "tapptic",
+            "bundle_identifier" => "de.codenauts.hockeytest.beta",
+            "device_family" => "iPhone/iPod",
+            "public_identifier" =>  "1234567890abcdef1234567890abcdef",
+            "company" => "some company",
             "release_type" => 0,
-            "platform" => "Android",
-            "title" => "RTL XL",
+            "platform" => "iOS",
+            "title" => "Hockey Test",
             "role" => 0,
             "status" => 2,
-            "minimum_os_version" => nil,
-            "owner" => "Alexandre Gherschon"
+            "minimum_os_version" => "4.0",
+            "owner" => "John Doe"
         }
       @client = HockeyApp::Client.new(HockeyApp::FakeWS.new)
       @app = HockeyApp::App.from_hash h, @client
@@ -24,17 +24,17 @@ describe HockeyApp::App do
     it_behaves_like "ActiveModel"
 
     it "can give me info about my application" do
-      @app.bundle_identifier.should == "com.tapptic.rtl5.rtlxl.beta"
-      @app.device_family.should be_nil
-      @app.public_identifier.should == "91423bc5519dd2462513abbb54598959"
-      @app.company.should == "tapptic"
+      @app.bundle_identifier.should == "de.codenauts.hockeytest.beta"
+      @app.device_family.should == "iPhone/iPod"
+      @app.public_identifier.should ==  "1234567890abcdef1234567890abcdef"
+      @app.company.should == "some company"
       @app.release_type.should == 0
-      @app.platform.should == "Android"
-      @app.title.should ==  "RTL XL"
+      @app.platform.should == "iOS"
+      @app.title.should ==  "Hockey Test"
       @app.role.should == 0
       @app.status.should == 2
-      @app.minimum_os_version.should be_nil
-      @app.owner.should == "Alexandre Gherschon"
+      @app.minimum_os_version.should == "4.0"
+      @app.owner.should == "John Doe"
     end
 
 
@@ -52,16 +52,36 @@ describe HockeyApp::App do
     @app.crash_reasons
   end
 
-    it "will call client once when asked for versions" do
-      @client.should_receive(:get_versions).with(@app).and_return([])
-      @app.versions
-      @client.should_not_receive(:get_versions).with(@app)
-      @app.versions
+  it "will call client once when asked for versions" do
+    @client.should_receive(:get_versions).with(@app).and_return([])
+    @app.versions
+    @client.should_not_receive(:get_versions).with(@app)
+    @app.versions
+  end
+
+  it "can generate a download url for iOS" do
+    @app.download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=ipa"
+  end
+
+  it "can generate a download url for Android" do
+    @app.platform = "Android"
+    @app.download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=apk"
+  end
+
+  describe "#create_version" do
+    it "will create a new version instance and pass it to the webservice" do
+      release_notes = "New version from automated test"
+      binary_file = double('file')
+      fake_version = double('version')
+      HockeyApp::Version.should_receive(:new).with(@app, @client).and_return(fake_version)
+      fake_version.should_receive(:ipa=).with(binary_file)
+      fake_version.should_receive(:notes=).with(release_notes)
+      @client.should_receive(:post_new_version).with(fake_version)
+      @app.create_version(binary_file, release_notes)
     end
 
-  it "can generate a download url" do
-    @app.download_url.should == "https://rink.hockeyapp.net/api/2/apps/91423bc5519dd2462513abbb54598959?format=apk"
   end
+
 
 
 end
