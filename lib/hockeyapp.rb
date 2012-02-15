@@ -8,6 +8,8 @@ require 'hockeyapp/models/crash_group'
 require 'hockeyapp/ws/ws'
 require 'hockeyapp/ws/client'
 require 'hockeyapp/config'
+require 'hockeyapp/services/android_urls'
+require 'hockeyapp/services/ios_urls'
 
 module HockeyApp
   extend self

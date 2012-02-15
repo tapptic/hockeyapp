@@ -27,7 +27,11 @@ module HockeyApp
       [public_identifier] if persisted?
     end
 
-
+    def platform= platform
+      @platform = platform
+      @url_strategy = HockeyApp::IOSAppUrls.new(self) if platform == "iOS"
+      @url_strategy = HockeyApp::AndroidAppUrls.new(self) if platform == "Android"
+    end
 
     def crashes
       @crashes ||= client.get_crashes(self)
@@ -41,6 +45,14 @@ module HockeyApp
       @versions ||= client.get_versions(self)
     end
 
+    def download_url
+      @url_strategy.download_url
+    end
+
+    def install_url
+      @url_strategy.install_url
+    end
+
     def create_version file, release_notes = ""
       version = Version.new(self, @client)
       version.ipa = file
@@ -49,9 +61,6 @@ module HockeyApp
       @versions = nil
     end
 
-    def download_url
-      "https://rink.hockeyapp.net/api/2/apps/#{public_identifier}?format=#{download_format}"
-    end
 
     private
 

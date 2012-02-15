@@ -19,7 +19,7 @@ describe HockeyApp::CrashGroup do
           "number_of_crashes" => 2,
           "fixed" => true,
           "created_at" => "2011-12-15T20:06:49Z",
-          "app_id" => 2505
+          "app_id" => 9999
       }
       @client = HockeyApp::Client.new(HockeyApp::FakeWS.new)
       @app = HockeyApp::App.from_hash( {"public_identifier" => "91423bc5519dd2462513abbb54598959"}, @client)
@@ -44,7 +44,7 @@ describe HockeyApp::CrashGroup do
       @crash_group.number_of_crashes.should == 2
       @crash_group.fixed.should == true
       @crash_group.created_at.should == "2011-12-15T20:06:49Z"
-      @crash_group.app_id.should == 2505
+      @crash_group.app_id.should == 9999
     end
 
 

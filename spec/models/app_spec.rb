@@ -68,6 +68,15 @@ describe HockeyApp::App do
     @app.download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=apk"
   end
 
+  it "can generate an install url for iOS" do
+    @app.install_url.should == "itms-services://?action=download-manifest&url=https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=plist"
+  end
+
+  it "can generate an install url for Android" do
+    @app.platform = "Android"
+    @app.install_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=apk"
+  end
+
   describe "#create_version" do
     it "will create a new version instance and pass it to the webservice" do
       release_notes = "New version from automated test"

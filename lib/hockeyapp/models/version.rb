@@ -46,6 +46,8 @@ module HockeyApp
       @app = app
       @client = client
       default_values!
+      @url_strategy = HockeyApp::IOSVersionUrls.new(self) if app.platform == "iOS"
+      @url_strategy = HockeyApp::AndroidVersionUrls.new(self) if app.platform == "Android"
     end
 
 
@@ -62,7 +64,11 @@ module HockeyApp
     end
 
     def download_url
-      "#"
+      @url_strategy.download_url
+    end
+
+    def install_url
+      @url_strategy.install_url
     end
 
 
