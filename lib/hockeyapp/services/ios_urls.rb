@@ -8,7 +8,8 @@ module HockeyApp
     end
 
     def install_url
-      "itms-services://?action=download-manifest&url=https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=plist"
+      location = "https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=plist"
+      "itms-services://?action=download-manifest&url=#{CGI::escape(location)}"
     end
   end
 
@@ -23,7 +24,8 @@ module HockeyApp
     end
 
     def install_url
-      "itms-services://?action=download-manifest&url=https://rink.hockeyapp.net/api/2/apps/#{@version.app.public_identifier}/app_versions/#{@version.version}?format=plist"
+      location = "https://rink.hockeyapp.net/api/2/apps/#{@version.app.public_identifier}/app_versions/#{@version.version}?format=plist"
+      "itms-services://?action=download-manifest&url=#{CGI::escape(location)}"
     end
   end
 end

@@ -69,7 +69,7 @@ describe HockeyApp::App do
   end
 
   it "can generate an install url for iOS" do
-    @app.install_url.should == "itms-services://?action=download-manifest&url=https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=plist"
+    @app.install_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapi%2F2%2Fapps%2F1234567890abcdef1234567890abcdef%3Fformat%3Dplist"
   end
 
   it "can generate an install url for Android" do

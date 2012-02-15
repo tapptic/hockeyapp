@@ -66,7 +66,7 @@ describe HockeyApp::Version do
   it "can generate an install url for iOS" do
     @app.platform= "iOS"
     @version = HockeyApp::Version.from_hash @h, @app, @client
-    @version.install_url.should == "itms-services://?action=download-manifest&url=https://rink.hockeyapp.net/api/2/apps/91423bc5519dd2462513abbb54598959/app_versions/9?format=plist"
+    @version.install_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapi%2F2%2Fapps%2F91423bc5519dd2462513abbb54598959%2Fapp_versions%2F9%3Fformat%3Dplist"
   end
 
   it "can generate an install url for Android" do
