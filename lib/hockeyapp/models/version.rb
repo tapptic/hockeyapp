@@ -5,7 +5,7 @@ module HockeyApp
     include ActiveModel::Validations
     include ActiveModelCompliance
 
-    ATTRIBUTES = [:notes, :shortversion, :version, :mandatory, :timestamp, :appsize,  :title]
+    ATTRIBUTES = [:id, :notes, :shortversion, :version, :mandatory, :timestamp, :appsize,  :title, :download_url]
 
     POST_PAYLOAD = [:status, :ipa, :dsym, :notes_type, :notify, :tags]
 
@@ -50,21 +50,20 @@ module HockeyApp
 
 
     def to_key
-      [version] if persisted?
+      [@id] if persisted?
     end
 
     def crashes
-      @crashes ||= @app.crashes.select{|crash| "#{crash.app_version_id}" == version}
+      @crashes ||= @app.crashes.select{|crash| "#{crash.app_version_id}" == @id.to_s}
     end
 
     def crash_reasons
-      @crash_groups ||= @app.crash_reasons.select{|crash_reason| "#{crash_reason.app_version_id}" == version}
+      @crash_groups ||= @app.crash_reasons.select{|crash_reason| "#{crash_reason.app_version_id}" == @id.to_s}
     end
 
     def download_url
-      "#"
+      @download_url
     end
-
 
     private
 
