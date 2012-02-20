@@ -4,12 +4,12 @@ module HockeyApp
       @app=app
     end
 
-    def download_url
+    def direct_download_url
       "https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=apk"
     end
 
     def install_url
-      download_url
+      direct_download_url
     end
   end
 
@@ -18,8 +18,12 @@ module HockeyApp
       @version=version
     end
 
+    def direct_download_url
+      "https://rink.hockeyapp.net/api/2/apps/#{@version.app.public_identifier}/app_versions/#{@version.id.to_s}?format=apk"
+    end
+
     def install_url
-      @version.download_url
+      direct_download_url
     end
   end
 end

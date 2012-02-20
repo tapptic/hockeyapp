@@ -1,7 +1,7 @@
 {
     "app_versions":[
         {
-            "id": 250,
+            "id": 208,
             "version":"208",
             "mandatory":false,
             "config_url":"https://rink.hockeyapp.net/manage/apps/1266/app_versions/208",

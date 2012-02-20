@@ -62,6 +62,10 @@ module HockeyApp
     end
 
 
+    def direct_download_url
+      url_strategy.direct_download_url
+    end
+
     def install_url
       url_strategy.install_url
     end

@@ -59,13 +59,18 @@ describe HockeyApp::App do
     @app.versions
   end
 
-  it "can generate a download url for iOS" do
-    @app.download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=ipa"
+  it "can generate a download url" do
+    @app.download_url.should == "https://rink.hockeyapp.net/apps/1234567890abcdef1234567890abcdef"
   end
 
-  it "can generate a download url for Android" do
+  it "can generate a direct download url for Android" do
     @app.platform = "Android"
-    @app.download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=apk"
+    @app.direct_download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=apk"
+  end
+
+  it "can generate a direct download url for iOS" do
+    @app.platform = "iOS"
+    @app.direct_download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=ipa"
   end
 
   it "can generate an install url for iOS" do
@@ -74,7 +79,7 @@ describe HockeyApp::App do
 
   it "can generate an install url for Android" do
     @app.platform = "Android"
-    @app.install_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=apk"
+    @app.install_url.should == @app.direct_download_url
   end
 
   describe "#create_version" do

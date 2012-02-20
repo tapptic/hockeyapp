@@ -47,7 +47,11 @@ module HockeyApp
     end
 
     def download_url
-      url_strategy.download_url
+      "https://rink.hockeyapp.net/apps/#{public_identifier}"
+    end
+
+    def direct_download_url
+      url_strategy.direct_download_url
     end
 
     def install_url

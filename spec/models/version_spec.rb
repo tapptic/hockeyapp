@@ -13,7 +13,7 @@ describe HockeyApp::Version do
           "timestamp" => 1326468169,
           "appsize" => 396074,
           "title" => "Test App",
-          "download_url" => "https://rink.hockeyapp.net/api/2/apps/91423bc5519dd2462513abbb54598959/app_versions/7?format=apk"
+          "download_url" => "https://rink.hockeyapp.net/apps/91423bc5519dd2462513abbb54598959/app_versions/7"
       }
 
       @client = HockeyApp::Client.new(HockeyApp::FakeWS.new)
@@ -34,7 +34,7 @@ describe HockeyApp::Version do
       @version.timestamp.should == 1326468169
       @version.appsize.should == 396074
       @version.title.should == "Test App"
-      @version.download_url.should == "https://rink.hockeyapp.net/api/2/apps/91423bc5519dd2462513abbb54598959/app_versions/7?format=apk"
+      @version.download_url.should == "https://rink.hockeyapp.net/apps/91423bc5519dd2462513abbb54598959/app_versions/7"
       
     end
 
@@ -52,7 +52,17 @@ describe HockeyApp::Version do
     @version.crash_reasons
   end
 
+    it "can generate a  direct download url for iOS" do
+      @app.platform= "iOS"
+      @version = HockeyApp::Version.from_hash @h, @app, @client
+      @version.direct_download_url.should == "https://rink.hockeyapp.net/api/2/apps/91423bc5519dd2462513abbb54598959/app_versions/7?format=ipa"
+    end
 
+    it "can generate an install url for Android" do
+      @app.platform = "Android"
+      @version = HockeyApp::Version.from_hash @h, @app, @client
+      @version.direct_download_url.should == "https://rink.hockeyapp.net/api/2/apps/91423bc5519dd2462513abbb54598959/app_versions/7?format=apk"
+    end
 
   it "can generate an install url for iOS" do
     @app.platform= "iOS"
@@ -63,7 +73,7 @@ describe HockeyApp::Version do
   it "can generate an install url for Android" do
     @app.platform = "Android"
     @version = HockeyApp::Version.from_hash @h, @app, @client
-    @version.install_url.should == @version.download_url
+    @version.install_url.should == @version.direct_download_url
   end
 
 

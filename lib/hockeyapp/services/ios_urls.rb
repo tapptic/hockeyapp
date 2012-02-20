@@ -4,6 +4,10 @@ module HockeyApp
       @app=app
     end
     def download_url
+      "https://rink.hockeyapp.net/apps/#{@app.public_identifier}"
+    end
+
+    def direct_download_url
       "https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=ipa"
     end
 
@@ -17,6 +21,10 @@ module HockeyApp
 
     def initialize version
       @version = version
+    end
+
+    def direct_download_url
+      "https://rink.hockeyapp.net/api/2/apps/#{@version.app.public_identifier}/app_versions/#{@version.id.to_s}?format=ipa"
     end
 
     def install_url
