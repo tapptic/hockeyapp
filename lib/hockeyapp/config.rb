@@ -2,7 +2,7 @@ module HockeyApp
   module Config
     extend self
 
-    ATTRIBUTES = [:token]
+    ATTRIBUTES = [:token, :base_uri]
 
     attr_accessor *ATTRIBUTES
 

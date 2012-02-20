@@ -12,6 +12,7 @@ module HockeyApp
       @options = Config.to_h.merge(options)
       raise "No API Token Given" if (@options[:token].nil?)
       self.class.headers 'X-HockeyAppToken' => @options[:token]
+      self.class.base_uri @options[:base_uri] if @options[:base_uri].present?
     end
     
     
@@ -45,7 +46,7 @@ module HockeyApp
     end
 
     def get_versions app_id, options = {}
-      self.class.get "/apps/#{app_id}", options
+      self.class.get "/apps/#{app_id}/app_versions", options
     end
 
     def post_new_version(
