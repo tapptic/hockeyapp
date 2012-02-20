@@ -15,7 +15,7 @@ module HockeyApp
     end
 
     def get_versions app_id, options = {}
-      respond "app"
+      respond "app_versions"
     end
 
 

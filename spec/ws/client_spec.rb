@@ -62,7 +62,7 @@ describe HockeyApp::Client do
       end
 
       it "has a 9 elements " do
-        client.get_versions(app).should have(9).items
+        client.get_versions(app).should have(2).items
 
       end
 

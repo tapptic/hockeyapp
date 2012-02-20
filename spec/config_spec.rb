@@ -15,10 +15,21 @@ describe HockeyApp::Config do
     HockeyApp::Config.token.should == "ABCDEF"
   end
 
+  it "can store a base_uri" do
+    HockeyApp::Config.base_uri = "foo"
+    HockeyApp::Config.base_uri.should == "foo"
+  end
+
   it "can transform into a hash" do
-    HockeyApp::Config.token = "ABCDEF"
+    HockeyApp::Config.configure do |config|
+      config.token = "ABCDEF"
+      config.base_uri = "foobar"
+    end
     hash = HockeyApp::Config.to_h
-    hash.should == {:token => "ABCDEF"}
+    hash.should == {
+        :token => "ABCDEF",
+        :base_uri => "foobar"
+    }
   end
 
 end

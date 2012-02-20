@@ -5,6 +5,9 @@ module HockeyApp
     include ActiveModel::Validations
     include ActiveModelCompliance
 
+    ANDROID = 'Android'
+    IOS = 'iOS'
+
     ATTRIBUTES = [:title, :minimum_os_version, :status, :company, :owner, :bundle_identifier, :device_family, :platform,
         :public_identifier, :role, :release_type]
 
@@ -29,8 +32,6 @@ module HockeyApp
 
     def platform= platform
       @platform = platform
-      @url_strategy = HockeyApp::IOSAppUrls.new(self) if platform == "iOS"
-      @url_strategy = HockeyApp::AndroidAppUrls.new(self) if platform == "Android"
     end
 
     def crashes
@@ -46,11 +47,11 @@ module HockeyApp
     end
 
     def download_url
-      @url_strategy.download_url
+      url_strategy.download_url
     end
 
     def install_url
-      @url_strategy.install_url
+      url_strategy.install_url
     end
 
     def create_version file, release_notes = ""
@@ -66,11 +67,10 @@ module HockeyApp
 
     attr_reader :client
 
-    def download_format
-      case platform
-        when "Android" then "apk"
-        when "iOS" then "ipa"
-      end
+    def url_strategy
+      return HockeyApp::IOSAppUrls.new(self) if platform == IOS
+      return HockeyApp::AndroidAppUrls.new(self) if platform == ANDROID
     end
+
   end
 end

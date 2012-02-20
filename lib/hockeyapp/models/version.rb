@@ -46,8 +46,6 @@ module HockeyApp
       @app = app
       @client = client
       default_values!
-      @url_strategy = HockeyApp::IOSVersionUrls.new(self) if app.platform == "iOS"
-      @url_strategy = HockeyApp::AndroidVersionUrls.new(self) if app.platform == "Android"
     end
 
 
@@ -63,12 +61,9 @@ module HockeyApp
       @crash_groups ||= @app.crash_reasons.select{|crash_reason| "#{crash_reason.app_version_id}" == @id.to_s}
     end
 
-    def download_url
-      @url_strategy.download_url
-    end
 
     def install_url
-      @url_strategy.install_url
+      url_strategy.install_url
     end
 
     private
@@ -81,6 +76,11 @@ module HockeyApp
       @notes_type=Version::NOTES_TYPES_TO_SYM.invert[:textile]
       @notify=Version::NOTIFY_TO_BOOL.invert[false]
       @status=Version::STATUS_TO_SYM.invert[:allow]
+    end
+
+    def url_strategy
+      return HockeyApp::IOSVersionUrls.new(self) if app.platform == HockeyApp::App::IOS
+      return HockeyApp::AndroidVersionUrls.new(self) if app.platform == HockeyApp::App::ANDROID
     end
 
   end
