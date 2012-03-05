@@ -66,6 +66,10 @@ module HockeyApp
       @versions = nil
     end
 
+    def remove
+      client.remove_app self
+    end
+
 
     private
 

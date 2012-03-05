@@ -2,40 +2,40 @@ require_relative '../support/rspec_helper'
 
 describe HockeyApp::App do
 
-    before :each do
-        h = {
-            "bundle_identifier" => "de.codenauts.hockeytest.beta",
-            "device_family" => "iPhone/iPod",
-            "public_identifier" =>  "1234567890abcdef1234567890abcdef",
-            "company" => "some company",
-            "release_type" => 0,
-            "platform" => "iOS",
-            "title" => "Hockey Test",
-            "role" => 0,
-            "status" => 2,
-            "minimum_os_version" => "4.0",
-            "owner" => "John Doe"
-        }
-      @client = HockeyApp::Client.new(HockeyApp::FakeWS.new)
-      @app = HockeyApp::App.from_hash h, @client
-      @model = @app
-    end
+  before :each do
+    h = {
+        "bundle_identifier" => "de.codenauts.hockeytest.beta",
+        "device_family" => "iPhone/iPod",
+        "public_identifier" =>  "1234567890abcdef1234567890abcdef",
+        "company" => "some company",
+        "release_type" => 0,
+        "platform" => "iOS",
+        "title" => "Hockey Test",
+        "role" => 0,
+        "status" => 2,
+        "minimum_os_version" => "4.0",
+        "owner" => "John Doe"
+    }
+    @client = HockeyApp::Client.new(HockeyApp::FakeWS.new)
+    @app = HockeyApp::App.from_hash h, @client
+    @model = @app
+  end
 
-    it_behaves_like "ActiveModel"
+  it_behaves_like "ActiveModel"
 
-    it "can give me info about my application" do
-      @app.bundle_identifier.should == "de.codenauts.hockeytest.beta"
-      @app.device_family.should == "iPhone/iPod"
-      @app.public_identifier.should ==  "1234567890abcdef1234567890abcdef"
-      @app.company.should == "some company"
-      @app.release_type.should == 0
-      @app.platform.should == "iOS"
-      @app.title.should ==  "Hockey Test"
-      @app.role.should == 0
-      @app.status.should == 2
-      @app.minimum_os_version.should == "4.0"
-      @app.owner.should == "John Doe"
-    end
+  it "can give me info about my application" do
+    @app.bundle_identifier.should == "de.codenauts.hockeytest.beta"
+    @app.device_family.should == "iPhone/iPod"
+    @app.public_identifier.should ==  "1234567890abcdef1234567890abcdef"
+    @app.company.should == "some company"
+    @app.release_type.should == 0
+    @app.platform.should == "iOS"
+    @app.title.should ==  "Hockey Test"
+    @app.role.should == 0
+    @app.status.should == 2
+    @app.minimum_os_version.should == "4.0"
+    @app.owner.should == "John Doe"
+  end
 
 
   it "will call client once when asked for crashes" do
@@ -96,7 +96,11 @@ describe HockeyApp::App do
 
   end
 
+  describe "#remove_app", :js => true do
+    it "will remove an app from hockeyapp", :driver => :webkit do
+      @client.should_receive(:remove_app).with(@app).and_return(true)
+      @app.remove
+    end
 
-
+  end
 end
-

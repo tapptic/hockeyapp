@@ -71,5 +71,8 @@ module HockeyApp
     end
 
 
+    def remove_app app_id
+      self.class.delete "/apps/#{app_id}"
+    end
   end
 end

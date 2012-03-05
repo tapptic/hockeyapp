@@ -136,6 +136,11 @@ describe HockeyApp::Client do
 
     end
 
+    describe "remove_app" do
+      it "returns expected code" do
+        client.remove_app(app).should == 200
+      end
 
+    end
   end
 end

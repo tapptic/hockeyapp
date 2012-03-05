@@ -31,6 +31,10 @@ module HockeyApp
       respond "new_version"
     end
 
+    def remove_app app_id
+      Struct.new(:code).new(200)
+    end
+
 
 
 
