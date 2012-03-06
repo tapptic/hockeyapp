@@ -48,7 +48,13 @@ module HockeyApp
     def remove_app app
       resp = ws.remove_app app.public_identifier
       raise "unexpected response" if resp.code != 200
-      resp.code
+      resp.code == 200
+    end
+
+    def create_app file_ipa
+      resp = ws.post_new_app(file_ipa)
+      raise "app couldn't be created" if resp.code unless resp['errors'].nil?
+      App.from_hash(resp, self)
     end
 
 

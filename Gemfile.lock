@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hockeyapp (0.0.2)
+    hockeyapp (0.0.3)
       activemodel
       awesome_print
       httmultiparty

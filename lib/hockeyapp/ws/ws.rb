@@ -74,5 +74,12 @@ module HockeyApp
     def remove_app app_id
       self.class.delete "/apps/#{app_id}"
     end
+
+    def post_new_app file_ipa
+      params = {
+        :ipa => file_ipa
+      }
+      self.class.post "/apps", :body => params
+    end
   end
 end

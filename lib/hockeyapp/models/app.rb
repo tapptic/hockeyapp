@@ -71,6 +71,7 @@ module HockeyApp
     end
 
 
+
     private
 
     attr_reader :client

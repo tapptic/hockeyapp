@@ -35,6 +35,10 @@ module HockeyApp
       Struct.new(:code).new(200)
     end
 
+    def post_new_app file_ipa
+     respond "new_app"
+    end
+
 
 
 

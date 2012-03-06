@@ -1,0 +1,12 @@
+{
+    "title": "HockeyTest",
+    "bundle_identifier": "de.codenauts.hockeytest",
+    "public_identifier": "1234567890abcdef1234567890abcdef",
+    "device_family": "iPhone/iPod",
+    "minimum_os_version": "4.0",
+    "release_type": 0,
+    "platform": "iOS",
+    "status": 2,
+    "config_url": "http://localhost:3000/manage/apps/123",
+    "public_url": "http://localhost:3000/apps/1234567890abcdef1234567890abcdef"
+}

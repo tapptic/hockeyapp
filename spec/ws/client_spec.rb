@@ -138,9 +138,16 @@ describe HockeyApp::Client do
 
     describe "remove_app" do
       it "returns expected code" do
-        client.remove_app(app).should == 200
+        client.remove_app(app).should be_true
       end
 
+    end
+
+    describe "create_app" do
+      it "returns an App object" do
+        binary_file = double('file')
+        client.create_app(binary_file).should be_kind_of ::HockeyApp::App
+      end
     end
   end
 end
