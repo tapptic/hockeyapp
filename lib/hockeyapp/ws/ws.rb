@@ -72,7 +72,10 @@ module HockeyApp
 
 
     def remove_app app_id
-      self.class.delete "/apps/#{app_id}"
+      self.class.format :plain
+      response = self.class.delete "/apps/#{app_id}"
+      self.class.format :json
+      response
     end
 
     def post_new_app file_ipa
