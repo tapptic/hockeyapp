@@ -53,7 +53,7 @@ module HockeyApp
 
     def create_app file_ipa
       resp = ws.post_new_app(file_ipa)
-      raise "app couldn't be created" if resp.code unless resp['errors'].nil?
+      raise "app couldn't be created" unless resp['errors'].nil?
       App.from_hash(resp, self)
     end
 
