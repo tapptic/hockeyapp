@@ -11,7 +11,31 @@ module HockeyApp
     ATTRIBUTES = [:title, :minimum_os_version, :status, :company, :owner, :bundle_identifier, :device_family, :platform,
         :public_identifier, :role, :release_type]
 
+    POST_PAYLOAD = [:status,:notes_type, :notify]
+
+    NOTES_TYPES_TO_SYM = {
+        0 => :textile,
+        1 => :markdown
+    }
+
+
+    NOTIFY_TO_BOOL = {
+        0 => false,
+        1 => true
+    }
+
+    STATUS_TO_SYM = {
+        1 => :deny,
+        2 => :allow
+    }
+
     attr_accessor *ATTRIBUTES
+    attr_accessor *POST_PAYLOAD
+
+
+    validates :notes_type, :inclusion => { :in =>NOTES_TYPES_TO_SYM.keys }
+    validates :notify, :inclusion => { :in => NOTIFY_TO_BOOL.keys }
+    validates :status, :inclusion => { :in => STATUS_TO_SYM.keys }
 
 
     def self.from_hash(h, client)

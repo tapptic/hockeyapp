@@ -6,7 +6,7 @@ module HockeyApp
     base_uri 'https://rink.hockeyapp.net/api/2'
     headers 'Accept' => 'application/json'
     format :json
-    
+
 
     def initialize (options = {})
       @options = Config.to_h.merge(options)
@@ -14,8 +14,8 @@ module HockeyApp
       self.class.headers 'X-HockeyAppToken' => @options[:token]
       self.class.base_uri @options[:base_uri] if @options[:base_uri].present?
     end
-    
-    
+
+
     def get_apps
       self.class.get '/apps'
     end
@@ -50,7 +50,7 @@ module HockeyApp
     end
 
     def post_new_version(
-            app_id,
+        app_id,
             ipa,
             dsym=nil,
             notes="New version",
@@ -59,12 +59,12 @@ module HockeyApp
             status=Version::STATUS_TO_SYM.invert[:allow]
     )
       params = {
-        :ipa => ipa ,
-        :dsym => dsym ,
-        :notes => notes,
-        :notes_type => notes_type,
-        :notify => notify,
-        :status => status
+          :ipa => ipa ,
+          :dsym => dsym ,
+          :notes => notes,
+          :notes_type => notes_type,
+          :notify => notify,
+          :status => status
       }
       params.reject!{|_,v|v.nil?}
       self.class.post "/apps/#{app_id}/app_versions", :body => params
@@ -78,10 +78,19 @@ module HockeyApp
       response
     end
 
-    def post_new_app file_ipa
+    def post_new_app(file_ipa,
+        notes="New app",
+        notes_type=App::NOTES_TYPES_TO_SYM.invert[:textile],
+        notify=App::NOTIFY_TO_BOOL.invert[false],
+        status=App::STATUS_TO_SYM.invert[:allow])
       params = {
-        :ipa => file_ipa
+          :ipa => file_ipa,
+          :notes => notes,
+          :notes_type => notes_type,
+          :notify => notify,
+          :status => status
       }
+      params.reject!{|_,v|v.nil?}
       self.class.post "/apps", :body => params
     end
   end
