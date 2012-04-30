@@ -63,23 +63,33 @@ describe HockeyApp::App do
     @app.download_url.should == "https://rink.hockeyapp.net/apps/1234567890abcdef1234567890abcdef"
   end
 
-  it "can generate a direct download url for Android" do
-    @app.platform = "Android"
-    @app.direct_download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=apk"
-  end
+  context "there are some versions" do
+    before :each do
+      version1 = double("Fake version1", :download_url => "https://rink.hockeyapp.net/apps/91423bc5519dd2462513abbb54598959/app_versions/7", :version => 7)
+      version2 = double("Fake version2", :download_url => "https://rink.hockeyapp.net/apps/35346436341532654745dsvqsdg32523/app_versions/15", :version => 15)
+      @versions = [version1, version2]
+      @app.stub(:versions).and_return(@versions)
+    end
 
-  it "can generate a direct download url for iOS" do
-    @app.platform = "iOS"
-    @app.direct_download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=ipa"
-  end
+    it "can generate a direct download url for Android" do
+      @app.platform = "Android"
+      @app.direct_download_url.should == "https://rink.hockeyapp.net/apps/35346436341532654745dsvqsdg32523/app_versions/15?format=apk"
+    end
 
-  it "can generate an install url for iOS" do
-    @app.install_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapi%2F2%2Fapps%2F1234567890abcdef1234567890abcdef%3Fformat%3Dplist"
-  end
+    it "can generate a direct download url for iOS" do
+      @app.platform = "iOS"
+      @app.direct_download_url.should == "https://rink.hockeyapp.net/apps/35346436341532654745dsvqsdg32523/app_versions/15?format=ipa"
+    end
 
-  it "can generate an install url for Android" do
-    @app.platform = "Android"
-    @app.install_url.should == @app.direct_download_url
+    it "can generate an install url for iOS" do
+      @app.install_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapps%2F35346436341532654745dsvqsdg32523%2Fapp_versions%2F15%3Fformat%3Dplist"
+    end
+
+    it "can generate an install url for Android" do
+      @app.platform = "Android"
+      @app.install_url.should == @app.direct_download_url
+    end
+
   end
 
   describe "#create_version" do
@@ -101,6 +111,31 @@ describe HockeyApp::App do
       @client.should_receive(:remove_app).with(@app).and_return(true)
       @app.remove
     end
+  end
+
+  describe "#last_version" do
+
+    it "sorts the versions" do
+      versions = double("versions")
+      @app.should_receive(:versions).and_return(versions)
+      versions.should_receive(:sort_by).and_return([])
+      @app.last_version
+    end
+
+    context "there are 3 versions for this app" do
+      before :each do
+        @version1 = double("Version1", :version => "5")
+        @version2 = double("Version2", :version => "10")
+        @version3 = double("Version3", :version => "6")
+        @versions = [@version1, @version2, @version3]
+
+      end
+      it "returns the last version" do
+        @app.should_receive(:versions).and_return(@versions)
+        @app.last_version.version.should == "10"
+      end
+    end
+
 
   end
 end

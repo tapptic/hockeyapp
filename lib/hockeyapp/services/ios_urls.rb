@@ -4,15 +4,15 @@ module HockeyApp
       @app=app
     end
     def download_url
-      "https://rink.hockeyapp.net/apps/#{@app.public_identifier}"
+      @app.last_version.download_url
     end
 
     def direct_download_url
-      "https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=ipa"
+      "#{@app.last_version.download_url}?format=ipa"
     end
 
     def install_url
-      location = "https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=plist"
+      location = "#{@app.last_version.download_url}?format=plist"
       "itms-services://?action=download-manifest&url=#{CGI::escape(location)}"
     end
   end
@@ -24,11 +24,11 @@ module HockeyApp
     end
 
     def direct_download_url
-      "https://rink.hockeyapp.net/api/2/apps/#{@version.app.public_identifier}/app_versions/#{@version.id.to_s}?format=ipa"
+      "#{@version.download_url}?format=ipa"
     end
 
     def install_url
-      location = "https://rink.hockeyapp.net/api/2/apps/#{@version.app.public_identifier}/app_versions/#{@version.id.to_s}?format=plist"
+      location = "#{@version.download_url}?format=plist"
       "itms-services://?action=download-manifest&url=#{CGI::escape(location)}"
     end
   end

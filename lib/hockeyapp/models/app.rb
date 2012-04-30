@@ -46,6 +46,11 @@ module HockeyApp
       @versions ||= client.get_versions(self)
     end
 
+    def last_version
+      sorted_version = versions.sort_by { |v| v.version.to_i}
+      sorted_version.last
+    end
+
     def download_url
       "https://rink.hockeyapp.net/apps/#{public_identifier}"
     end
