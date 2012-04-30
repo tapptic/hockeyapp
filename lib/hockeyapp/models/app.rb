@@ -52,7 +52,7 @@ module HockeyApp
     end
 
     def download_url
-      "https://rink.hockeyapp.net/apps/#{public_identifier}"
+      last_version.download_url
     end
 
     def direct_download_url

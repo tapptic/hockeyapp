@@ -60,7 +60,7 @@ describe HockeyApp::App do
   end
 
   it "can generate a download url" do
-    @app.download_url.should == "https://rink.hockeyapp.net/apps/1234567890abcdef1234567890abcdef"
+    @app.download_url.should == "https://rink.hockeyapp.net/apps/0873e2b98ad046a92c170a243a8515f6/app_versions/208"
   end
 
   context "there are some versions" do
