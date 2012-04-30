@@ -8,8 +8,7 @@ module HockeyApp
     end
 
     def direct_download_url
-      location = "https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=plist"
-      "itms-services://?action=download-manifest&url=#{CGI::escape(location)}"
+      @app.last_version.direct_download_url
     end
 
     def install_url
