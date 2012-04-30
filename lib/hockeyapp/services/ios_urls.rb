@@ -11,6 +11,10 @@ module HockeyApp
       location = "https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=plist"
       "itms-services://?action=download-manifest&url=#{CGI::escape(location)}"
     end
+
+    def install_url
+      @app.last_version.install_url
+    end
   end
 
   class  IOSVersionUrls

@@ -63,34 +63,27 @@ describe HockeyApp::App do
     @app.download_url.should == "https://rink.hockeyapp.net/apps/0873e2b98ad046a92c170a243a8515f6/app_versions/208"
   end
 
-  context "there are some versions" do
-    before :each do
-      version1 = double("Fake version1", :download_url => "https://rink.hockeyapp.net/apps/91423bc5519dd2462513abbb54598959/app_versions/7", :version => 7)
-      version2 = double("Fake version2", :download_url => "https://rink.hockeyapp.net/apps/35346436341532654745dsvqsdg32523/app_versions/15", :version => 15)
-      @versions = [version1, version2]
-      @app.stub(:versions).and_return(@versions)
-    end
 
-    it "can generate a direct download url for Android" do
-      @app.platform = "Android"
-      @app.direct_download_url.should == "https://rink.hockeyapp.net/apps/35346436341532654745dsvqsdg32523/app_versions/15?format=apk"
-    end
 
-    it "can generate a direct download url for iOS" do
-      @app.platform = "iOS"
-      @app.direct_download_url.should == "https://rink.hockeyapp.net/apps/35346436341532654745dsvqsdg32523/app_versions/15?format=ipa"
-    end
-
-    it "can generate an install url for iOS" do
-      @app.install_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapps%2F35346436341532654745dsvqsdg32523%2Fapp_versions%2F15%3Fformat%3Dplist"
-    end
-
-    it "can generate an install url for Android" do
-      @app.platform = "Android"
-      @app.install_url.should == @app.direct_download_url
-    end
-
+  it "can generate a direct download url for Android" do
+    @app.platform = "Android"
+    @app.direct_download_url.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=apk"
   end
+
+  it "can generate a direct download url for iOS" do
+    @app.platform = "iOS"
+    @app.direct_download_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapi%2F2%2Fapps%2F1234567890abcdef1234567890abcdef%3Fformat%3Dplist"
+  end
+
+  it "can generate an install url for iOS" do
+    @app.install_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapi%2F2%2Fapps%2F1234567890abcdef1234567890abcdef%2Fapp_versions%2F208%3Fformat%3Dplist"
+  end
+
+  it "can generate an install url for Android" do
+    @app.platform = "Android"
+    @app.install_url.should == @app.direct_download_url
+  end
+
 
   describe "#create_version" do
     it "will create a new version instance and pass it to the webservice" do

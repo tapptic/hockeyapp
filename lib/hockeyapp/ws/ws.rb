@@ -90,7 +90,6 @@ module HockeyApp
           :notify => notify,
           :status => status
       }
-      params.reject!{|_,v|v.nil?}
       self.class.post "/apps", :body => params
     end
   end

@@ -57,19 +57,19 @@ describe HockeyApp::Version do
   it "can generate a  direct download url for iOS" do
     @app.platform= "iOS"
     @version = HockeyApp::Version.from_hash @h, @app, @client
-    @version.direct_download_url.should == "https://rink.hockeyapp.net/apps/91423bc5519dd2462513abbb54598959/app_versions/7?format=ipa"
+    @version.direct_download_url.should == "https://rink.hockeyapp.net/api/2/apps/91423bc5519dd2462513abbb54598959/app_versions/7?format=ipa"
   end
 
   it "can generate an install url for Android" do
     @app.platform = "Android"
     @version = HockeyApp::Version.from_hash @h, @app, @client
-    @version.direct_download_url.should == "https://rink.hockeyapp.net/apps/91423bc5519dd2462513abbb54598959/app_versions/7?format=apk"
+    @version.direct_download_url.should == "https://rink.hockeyapp.net/api/2/apps/91423bc5519dd2462513abbb54598959/app_versions/7?format=apk"
   end
 
   it "can generate an install url for iOS" do
     @app.platform= "iOS"
     @version = HockeyApp::Version.from_hash @h, @app, @client
-    @version.install_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapps%2F91423bc5519dd2462513abbb54598959%2Fapp_versions%2F7%3Fformat%3Dplist"
+    @version.install_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapi%2F2%2Fapps%2F91423bc5519dd2462513abbb54598959%2Fapp_versions%2F7%3Fformat%3Dplist"
   end
 
   it "can generate an install url for Android" do
