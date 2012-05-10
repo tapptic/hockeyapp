@@ -75,6 +75,10 @@ module HockeyApp
       sorted_version.last
     end
 
+    def icon
+      url_strategy.icon
+    end
+
     def download_url
       last_version.download_url
     end

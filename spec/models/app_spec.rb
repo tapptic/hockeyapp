@@ -79,6 +79,15 @@ describe HockeyApp::App do
     @app.install_url.should == "itms-services://?action=download-manifest&url=https%3A%2F%2Frink.hockeyapp.net%2Fapi%2F2%2Fapps%2F1234567890abcdef1234567890abcdef%2Fapp_versions%2F208%3Fformat%3Dplist"
   end
 
+  it "can generate an icon url for iOS" do
+    @app.icon.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=png"
+  end
+
+  it "can generate an icon url for Android" do
+    @app.platform = "Android"
+    @app.icon.should == "https://rink.hockeyapp.net/api/2/apps/1234567890abcdef1234567890abcdef?format=png"
+  end
+
   it "can generate an install url for Android" do
     @app.platform = "Android"
     @app.install_url.should == @app.direct_download_url
