@@ -19,13 +19,13 @@ end
 
 client = HockeyApp.build_client
 
-3° use the client
+3° Use the client
 
 apps = client.get_apps
 versions = apps.first.versions
 crashes = apps.first.crashes
 ....
 
-4° Read the specs formore use cases
+4° Read the specs for more use cases
 
 
