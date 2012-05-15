@@ -12,10 +12,6 @@ module HockeyApp
       direct_download_url
     end
 
-
-    def icon
-      "https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=png"
-    end
   end
 
   class AndroidVersionUrls

@@ -15,9 +15,6 @@ module HockeyApp
       @app.last_version.install_url
     end
 
-    def icon
-      "https://rink.hockeyapp.net/api/2/apps/#{@app.public_identifier}?format=png"
-    end
   end
 
   class  IOSVersionUrls

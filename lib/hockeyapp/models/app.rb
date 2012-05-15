@@ -76,7 +76,7 @@ module HockeyApp
     end
 
     def icon
-      url_strategy.icon
+      "https://rink.hockeyapp.net/api/2/apps/#{public_identifier}?format=png"
     end
 
     def download_url
