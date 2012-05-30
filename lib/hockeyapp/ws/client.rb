@@ -6,9 +6,11 @@ module HockeyApp
     end
 
     def get_apps
-      apps_hash = ws.get_apps
-      assert_success apps_hash
-      apps_hash["apps"].map{|app_hash|App.from_hash(app_hash, self)}
+      Rails.cache.fetch("apps", :expires_in => 1.hour) do
+        apps_hash = ws.get_apps
+        assert_success apps_hash
+        apps_hash["apps"].map{|app_hash|App.from_hash(app_hash, self)}
+      end
     end
 
     def get_crashes app
@@ -49,12 +51,14 @@ module HockeyApp
     end
 
     def remove_app app
+      Rails.cache.delete("apps")
       resp = ws.remove_app app.public_identifier
       raise "unexpected response" if resp.code != 200
       resp.code == 200
     end
 
     def create_app file_ipa
+      Rails.cache.delete("apps")
       resp = ws.post_new_app(file_ipa)
       raise resp['errors'].map{|e|e.to_s}.join("\n") unless resp['errors'].nil?
       App.from_hash(resp, self)
