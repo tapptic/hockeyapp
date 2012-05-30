@@ -32,11 +32,14 @@ module HockeyApp
     end
 
     def get_versions app
-      versions_hash = ws.get_versions app.public_identifier
-      versions_hash["app_versions"].map{|version_hash|Version.from_hash(version_hash, app, self)}
+      Rails.cache.fetch("versions/#{app.public_identifier}", :expires_in => 1.hour) do
+        versions_hash = ws.get_versions app.public_identifier
+        versions_hash["app_versions"].map{|version_hash|Version.from_hash(version_hash, app, self)}
+      end
     end
 
     def post_new_version version
+      Rails.cache.delete("versions/#{version.app.public_identifier}")
       app_id = version.app.public_identifier
       ipa = version.ipa
       raise "There must be an executable file" if ipa.nil?
