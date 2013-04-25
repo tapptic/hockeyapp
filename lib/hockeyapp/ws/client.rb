@@ -57,8 +57,6 @@ module HockeyApp
       App.from_hash(resp, self)
     end
 
-
-
     private
 
     attr_reader :ws
