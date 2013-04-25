@@ -92,5 +92,10 @@ module HockeyApp
       }
       self.class.post "/apps", :body => params
     end
+
+    def remove_versions app, options
+      params = options.select { |key, value| [:strategy, :number, :keep, :storage].include? key }
+      self.class.post "/apps/#{app.public_identifier}/app_versions/delete", :body => params
+    end
   end
 end

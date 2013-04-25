@@ -45,6 +45,10 @@ module HockeyApp
       Version.from_hash(version_hash, version.app, self)
     end
 
+    def remove_versions app, options
+      ws.remove_versions app, options
+    end
+
     def remove_app app
       resp = ws.remove_app app.public_identifier
       raise "unexpected response" if resp.code != 200
