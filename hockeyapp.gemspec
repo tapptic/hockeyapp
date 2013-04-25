@@ -17,17 +17,13 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
-  s.add_runtime_dependency "rspec"
-  s.add_runtime_dependency "simplecov"
-  s.add_runtime_dependency "awesome_print"
-  s.add_runtime_dependency "rake"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "awesome_print"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "simplecov"
+
   s.add_runtime_dependency "multi_json"
-
-
-  s.add_runtime_dependency "httmultiparty"""
+  s.add_runtime_dependency "httmultiparty"
   s.add_runtime_dependency "activemodel"
 
 end
