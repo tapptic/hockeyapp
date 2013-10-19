@@ -10,7 +10,7 @@ More info available on this API here : [http://support.hockeyapp.net/kb/api](htt
 1° Configure your connection :
 
     HockeyApp::Config.configure do |config|
-          config.token = "ABCDEF"
+      config.token = "ABCDEF"
     end
 
 2° Make a client
