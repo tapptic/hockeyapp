@@ -45,6 +45,10 @@ module HockeyApp
       Version.from_hash(version_hash, version.app, self)
     end
 
+    def remove_versions app, options
+      ws.remove_versions app, options
+    end
+
     def remove_app app
       resp = ws.remove_app app.public_identifier
       raise "unexpected response" if resp.code != 200
@@ -57,7 +61,14 @@ module HockeyApp
       App.from_hash(resp, self)
     end
 
+    def list_users app, options={}
+      list_users_hash = ws.list_users app.public_identifier, options
+      list_users_hash["app_users"].map{|reason_hash|AppUser.from_hash(reason_hash, app, self)}
+    end
 
+    def invite_user app, options={}
+      ws.invite_user app.public_identifier, options
+    end
 
     private
 
@@ -70,3 +81,4 @@ module HockeyApp
 
   end
 end
+

@@ -9,24 +9,24 @@ module HockeyApp
     IOS = 'iOS'
 
     ATTRIBUTES = [:title, :minimum_os_version, :status, :company, :owner, :bundle_identifier, :device_family, :platform,
-        :public_identifier, :role, :release_type]
+                  :public_identifier, :role, :release_type]
 
     POST_PAYLOAD = [:status,:notes_type, :notify]
 
     NOTES_TYPES_TO_SYM = {
-        0 => :textile,
-        1 => :markdown
+      0 => :textile,
+      1 => :markdown
     }
 
 
     NOTIFY_TO_BOOL = {
-        0 => false,
-        1 => true
+      0 => false,
+      1 => true
     }
 
     STATUS_TO_SYM = {
-        1 => :deny,
-        2 => :allow
+      1 => :deny,
+      2 => :allow
     }
 
     attr_accessor *ATTRIBUTES
