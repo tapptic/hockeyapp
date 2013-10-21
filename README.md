@@ -25,3 +25,20 @@ More info available on this API here : [http://support.hockeyapp.net/kb/api](htt
     ....
 
 4° Read the specs for more use cases
+
+## Methods implemented
+
+- Client#get_apps
+- Client#get_crashes app
+- Client#get_crash_groups app
+- Client#get_crash_log crash
+- Client#get_crash_description
+- Client#get_versions
+- Client#post_new_version version
+- Client#remove_versions app, options={}
+- Client#remove_app app
+- Client#create_app file_ipa
+- Client#list_users app, options={}
+- Client#invite_user app, options={}
+
+

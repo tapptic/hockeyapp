@@ -61,6 +61,15 @@ module HockeyApp
       App.from_hash(resp, self)
     end
 
+    def list_users app, options={}
+      list_users_hash = ws.list_users app.public_identifier, options
+      list_users_hash["app_users"].map{|reason_hash|AppUser.from_hash(reason_hash, app, self)}
+    end
+
+    def invite_user app, options={}
+      ws.invite_user app.public_identifier, options
+    end
+
     private
 
     attr_reader :ws
@@ -72,3 +81,4 @@ module HockeyApp
 
   end
 end
+
