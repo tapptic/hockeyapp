@@ -41,4 +41,9 @@ More info available on this API here : [http://support.hockeyapp.net/kb/api](htt
 - Client#list_users app, options={}
 - Client#invite_user app, options={}
 
+## Contributors
+
+- [@tapptic](https://github.com/tapptic)
+- [@mikedougherty](https://github.com/mikedougherty)
+- [@otobrglez](https://github.com/otobrglez)
 
