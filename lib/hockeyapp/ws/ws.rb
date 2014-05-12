@@ -67,7 +67,7 @@ module HockeyApp
           :status => status
       }
       params.reject!{|_,v|v.nil?}
-      self.class.post "/apps/#{app_id}/app_versions", :body => params
+      self.class.post "/apps/#{app_id}/app_versions/upload", :body => params
     end
 
 
