@@ -91,11 +91,12 @@ module HockeyApp
       url_strategy.install_url
     end
 
-    def create_version file, release_notes = "", notify = :none, tags = ""
+    def create_version file, release_notes = "", notify = :none, status = :allow , tags = ""
       version = Version.new(self, @client)
       version.ipa = file
       version.notes = release_notes
       version.notify = notify
+      version.status = status
       version.tags = tags
       client.post_new_version version
       @versions = nil
