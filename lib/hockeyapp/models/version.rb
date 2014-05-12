@@ -16,8 +16,9 @@ module HockeyApp
 
 
     NOTIFY_TO_BOOL = {
-        0 => false,
-        1 => true
+        0 => :none,
+        1 => :all_allowed,
+	2 => :all
     }
 
     STATUS_TO_SYM = {
@@ -78,7 +79,7 @@ module HockeyApp
       @dsym=nil
       @notes="New version"
       @notes_type=Version::NOTES_TYPES_TO_SYM.invert[:textile]
-      @notify=Version::NOTIFY_TO_BOOL.invert[false]
+      @notify=Version::NOTIFY_TO_BOOL.invert[:none]
       @status=Version::STATUS_TO_SYM.invert[:allow]
     end
 
