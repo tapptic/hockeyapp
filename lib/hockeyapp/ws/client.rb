@@ -23,6 +23,12 @@ module HockeyApp
       crash_groups_hash["crash_reasons"].map{|reason_hash|CrashGroup.from_hash(reason_hash, app, self)}
     end
 
+    def get_crash_groups_for_version version, options = {}
+      crash_groups_hash = ws.get_crash_groups_for_version version.app.public_identifier, version.id, {query:options}
+      assert_success crash_groups_hash
+      crash_groups_hash["crash_reasons"].map{|reason_hash|CrashGroup.from_hash(reason_hash,version.app,self)}
+    end
+
     def get_crash_log crash
       ws.get_crash_log crash.app.public_identifier, crash.id
     end

@@ -57,8 +57,8 @@ module HockeyApp
       @crashes ||= @app.crashes.select{|crash| "#{crash.app_version_id}" == @id.to_s}
     end
 
-    def crash_reasons
-      @crash_groups ||= @app.crash_reasons.select{|crash_reason| "#{crash_reason.app_version_id}" == @id.to_s}
+    def crash_reasons options = {}
+      @crash_groups ||= client.get_crash_groups_for_version(self, options)
     end
 
 
