@@ -9,6 +9,7 @@ end
 
 
 require 'hockeyapp'
+require 'minitest/autorun'
 require_relative 'fake_ws'
 require_relative 'active_model_lint'
 
