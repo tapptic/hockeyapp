@@ -20,6 +20,7 @@ describe HockeyApp::Version do
     @app = HockeyApp::App.from_hash( {"public_identifier" => "91423bc5519dd2462513abbb54598959"}, @client)
     @version = HockeyApp::Version.from_hash @h, @app, @client
     @model = @version
+    @options = {}
   end
 
   subject{@version}
@@ -41,14 +42,14 @@ describe HockeyApp::Version do
   it "calls client once  when asked for crashes" do
     @client.should_receive(:get_crashes).with(@app).and_return([])
     @version.crashes
-    @client.should_not_receive(:get_crashes).with(@app)
+    @client.should_not_receive(:get_crashes)
     @version.crashes
   end
 
   it "calls client once when asked for crash groups" do
-    @client.should_receive(:get_crash_groups).with(@app).and_return([])
+    @client.should_receive(:get_crash_groups_for_version).with(@version, @options).and_return([])
     @version.crash_reasons
-    @client.should_not_receive(:get_crash_groups).with(@app)
+    @client.should_not_receive(:get_crash_groups_for_version).with(@version, @options)
     @version.crash_reasons
   end
 

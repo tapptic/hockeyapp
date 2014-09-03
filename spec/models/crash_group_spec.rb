@@ -25,6 +25,7 @@ describe HockeyApp::CrashGroup do
       @app = HockeyApp::App.from_hash( {"public_identifier" => "91423bc5519dd2462513abbb54598959"}, @client)
       @crash_group = HockeyApp::CrashGroup.from_hash h, @app, @client
       @model = @crash_group
+      @options = {}
     end
 
     it_behaves_like "ActiveModel"
@@ -47,7 +48,12 @@ describe HockeyApp::CrashGroup do
       @crash_group.app_id.should == 9999
     end
 
-
+    it "calls client once when asked for crashes" do
+      @client.should_receive(:get_crashes_for_crash_group).with(@crash_group, @options).and_return([])
+      @crash_group.crashes
+      @client.should_not_receive(:get_crashes_for_crash_group).with(@crash_group, @options)
+      @crash_group.crashes
+    end
 
 end
 
