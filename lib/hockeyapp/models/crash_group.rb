@@ -10,7 +10,7 @@ module HockeyApp
 
 
     attr_accessor *ATTRIBUTES
-    attr_reader :application
+    attr_reader :app
 
 
     def self.from_hash(h, app, client)
@@ -22,11 +22,14 @@ module HockeyApp
       res
     end
 
-    def initialize application, client
-      @application = application
+    def initialize app, client
+      @app = app
       @client = client
     end
 
+    def crashes options = {}
+      @crashes ||= client.get_crashes_for_crash_group(self, options)
+    end
 
     private
 

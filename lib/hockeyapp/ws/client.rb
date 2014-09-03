@@ -17,6 +17,12 @@ module HockeyApp
       crashes_hash["crashes"].map{|crash_hash|Crash.from_hash(crash_hash, app, self)}
     end
 
+    def get_crashes_for_crash_group group, options = {}
+      crashes_hash = ws.get_crashes_for_group group.app.public_identifier, group.id, {query:options}
+      assert_success crashes_hash
+      crashes_hash["crashes"].map{|crash_hash|Crash.from_hash(crash_hash, group.app, self)}
+    end
+
     def get_crash_groups app
       crash_groups_hash = ws.get_crash_groups app.public_identifier
       assert_success crash_groups_hash
@@ -26,7 +32,7 @@ module HockeyApp
     def get_crash_groups_for_version version, options = {}
       crash_groups_hash = ws.get_crash_groups_for_version version.app.public_identifier, version.id, {query:options}
       assert_success crash_groups_hash
-      crash_groups_hash["crash_reasons"].map{|reason_hash|CrashGroup.from_hash(reason_hash,version.app,self)}
+      crash_groups_hash["crash_reasons"].map{|reason_hash|CrashGroup.from_hash(reason_hash, version.app, self)}
     end
 
     def get_crash_log crash
