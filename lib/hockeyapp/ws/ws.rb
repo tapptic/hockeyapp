@@ -63,8 +63,9 @@ module HockeyApp
             dsym=nil,
             notes="New version",
             notes_type=Version::NOTES_TYPES_TO_SYM.invert[:textile],
-            notify=Version::NOTIFY_TO_BOOL.invert[false],
-            status=Version::STATUS_TO_SYM.invert[:allow]
+            notify=Version::NOTIFY_TO_BOOL.invert[:none],
+            status=Version::STATUS_TO_SYM.invert[:allow],
+            tags=''
     )
       params = {
           :ipa => ipa ,
@@ -72,7 +73,8 @@ module HockeyApp
           :notes => notes,
           :notes_type => notes_type,
           :notify => notify,
-          :status => status
+          :status => status,
+          :tags => tags
       }
       params.reject!{|_,v|v.nil?}
       self.class.post "/apps/#{app_id}/app_versions/upload", :body => params
