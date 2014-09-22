@@ -3,3 +3,4 @@
 pkg/*
 .idea
 coverage
+Gemfile.lock
