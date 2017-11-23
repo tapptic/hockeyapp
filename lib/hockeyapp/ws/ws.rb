@@ -20,7 +20,6 @@ module HockeyApp
       self.class.get '/apps'
     end
 
-
     def get_crashes app_id, options = {}
       self.class.get "/apps/#{app_id}/crashes", options
     end
@@ -78,6 +77,10 @@ module HockeyApp
       }
       params.reject!{|_,v|v.nil?}
       self.class.post "/apps/#{app_id}/app_versions/upload", :body => params
+    end
+
+    def get_statistics app_id, options = {}
+      self.class.get "/apps/#{app_id}/statistics", options
     end
 
 
